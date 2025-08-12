@@ -1,0 +1,140 @@
+---
+layout: default
+title: Annotare Help Page
+---
+
+<section id="annotare-help">
+  <div class="small-12 medium-9 columns">
+
+    <h2>Globus Upload Instructions</h2>
+    <br>
+    <h3 id="globus-login">Setting up Globus Account</h3>
+    <p>Globus is an efficient solution for large file transfers. Follow these steps to set up your Globus account and connect.</p>
+    <strong>Authentication Options</strong>
+    <p>When accessing Globus for the first time, you have three authentication options:</p>
+    <ul>
+      <li><strong>Organizational Login (recommended):</strong> If your organization is listed in the dropdown menu, select it and proceed with your institutional credentials.</li>
+      <li><strong>Google/ORCID/Github Account:</strong> You can authenticate using your existing Google/ORCID/Github account.</li>
+      <li><strong>Globus ID:</strong> You can create a Globus ID by signing up and verifying your email address.</li>
+    </ul>
+
+    <p><img src="../assets/img/globus_login_options.png" alt="Globus login options" style="width: 70%;"/></p>
+    <p>&nbsp;</p>
+    <hr />
+
+    <h3 id="globus-transfer">Transferring Files via Globus</h3>
+    <p>Once you have a Globus account, you can transfer files using one of the following methods:</p>
+
+    <h4>Option 1: Browser Upload (for smaller files &lt;1GB)</h4>
+    <ol>
+      <li>Open the Globus collection URL provided for your submission.</li>
+      <li>Click on "Upload" and "Select Files to Upload".</li>
+      <li>Allow authentication/consent for the Globus web app to perform HTTPS uploads.</li>
+      <li>Select files from your local directory and start uploading.</li>
+    </ol>
+
+    <h4>Option 2: Globus Personal Connect (for large files &gt;1GB)</h4>
+    <p>This is the recommended option for transferring multiple large files.</p>
+    <ol>
+      <li><strong>Install Globus Personal Connect client:</strong>
+        <ul>
+          <li><a target="_blank" href="https://docs.globus.org/globus-connect-personal/install/windows/">Windows Installation Guide</a></li>
+          <li><a target="_blank" href="https://docs.globus.org/globus-connect-personal/install/mac/">MacOS Installation Guide</a></li>
+          <li><a target="_blank" href="https://docs.globus.org/globus-connect-personal/install/linux/">Linux Installation Guide</a></li>
+        </ul>
+      </li>
+      <li><strong>Set up local collection:</strong> Follow the installation instructions to set up your local endpoint/collection.</li>
+      <li><strong>Transfer files:</strong>
+        <ol>
+          <li>Open <a href="https://app.globus.org/file-manager" target="_blank">https://app.globus.org/file-manager</a> in your browser.</li>
+          <li>Select "Set two panes" at the top.</li>
+          <li>In the left pane, search for and select the collection ID provided for your submission.</li>
+          <li>Click on "Transfer or Sync to..." button.</li>
+          <li>In the right pane, search for and select your local collection that you created during setup.</li>
+          <li>In your local collection (Right pane), select the files you want to transfer.</li>
+          <li>Click on "Start" to begin the transfer task.</li>
+          <li><strong>Note:</strong> Please select only files, not directories.</li>
+        </ol>
+      </li>
+      <li><strong>Check transfer status:</strong>
+        <ol>
+          <li>After starting a transfer, click on the "Activity" button in the left side menu.</li>
+          <li>This will display all your active and recent transfer tasks.</li>
+          <li>You can monitor the progress, see completed transfers, and check for any errors.</li>
+          <li>You can also cancel ongoing transfers from this screen if needed.</li>
+        </ol>
+      </li>
+    </ol>
+
+    <p><img src="../assets/img/globus_transfer_panes.png" alt="Globus transfer panes" style="width: 70%;"/></p>
+    <p><img src="../assets/img/globus_activity.png" alt="Globus activity screen" style="width: 70%;"/></p>
+
+    <h4>After File Transfer</h4>
+    <p>Once file transfer completes, proceed with registering files and their MD5 hashes in Annotare by clicking on "Globus Upload" button and following the instructions there.
+    </p>
+
+    <p>You can find more information about sharing data via Globus at <a href="https://www.globus.org/globus-connect-personal" target="_blank">https://www.globus.org/globus-connect-personal</a></p>
+    <br>
+  </div>
+
+  <!-- side navigation -->
+  <div class="small-12 medium-3 columns sidebar">
+    <ul class="vertical menu accordion-menu" data-accordion-menu>
+      <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/index.html" class="active" >Submission guide</a></li>
+      <li><a>Before you start</a>
+        <ul class="menu vertical nested">
+          <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/what_to_submit.html">Submission overview</a></li>
+          <li><a>Accepted file formats</a>
+            <ul>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/accepted_raw_ma_file_formats.html">Microarray raw data</a></li>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/accepted_processed_ma_file_formats.html">Microarray processed data</a></li>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/accepted_sequencing_file_formats.html#raw_data_files">Sequencing raw data</a></li>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/accepted_sequencing_file_formats.html#processed_data">Sequencing processed data</a></li>
+            </ul>
+          </li>
+          <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/pre-submission_checklist.html">Pre-submission checklist</a></li>
+          <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/adf_submissions_overview.html">Array design submissions</a></li>
+        </ul>
+      </li>
+      <li><a>Annotare step-by-step</a>
+        <ul class="menu vertical nested is-active">
+          <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/getting_started.html">Getting started</a></li>
+          <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/time_saving_features.html">Time-saving features</a></li>
+          <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/describe_exp.html">Describe experiment</a></li>
+          <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/sample_attributes.html">Sample attributes and protocols</a></li>
+          <li><a>Technology-specific details</a>
+            <ul class="menu vertical nested">
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/seq_lib_spec.html">Sequencing library information</a></li>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/single-cell_submission_guide.html">Single cell information</a></li>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/two_color_ma.html">Two-colour experiments</a></li>
+            </ul>
+          </li>
+          <li><a>Upload and assign files</a>
+            <ul class="menu vertical nested is-active">
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#direct">Direct upload</a></li>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/ftp_upload.html">FTP/Aspera upload</a></li>
+              <li><a class="active" target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/globus_upload.html">Globus upload</a></li>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#ftp">Import FTP/Aspera uploaded files</a></li>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/assign_files.html">Assign files</a></li>
+            </ul>
+          </li>
+          <li><a>Validate and submit</a>
+            <ul>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/validate_exp.html#validate">What is validation?</a></li>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/submit_exp.html">Submit, and what happens next?</a></li>
+              <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/submit_exp.html#save_sub">Saving a copy of your submission</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a>After submission</a>
+        <ul class="menu vertical nested ">
+          <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/after_sub_private_access.html">Access private experiments</a></li>
+          <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/after_sub_modify_data.html">Modify or remove an existing experiment</a></li>
+          <li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/after_sub_data_availability.html">Data availability and release policy</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /medium-3 -->
+
+</section>

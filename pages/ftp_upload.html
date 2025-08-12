@@ -35,7 +35,7 @@ title: Annotare Help Page
 
 		<p>Open a Windows Explorer window (and <em>not</em> an internet browser window as the latter is not designed for FTP file upload). If you need help how to open an Explorer window, here are instructions for <a target="_blank" href="https://www.wikihow.com/Open-Windows-Explorer#Windows_7_and_Vista_sub">Windows XP/Vista/7</a>, <a target="_blank" href="http://www.7tutorials.com/7-ways-open-file-explorer-windows-81">Windows 8</a> and <a target="_blank" href="http://www.7tutorials.com/9-ways-open-file-explorer-windows-10">Windows 10</a>.</p>
 
-		<p>If you are uploading files for an <strong>Annotare submission</strong>, you will have get the FTP address from your Annotare <code>"Upload and assign data files" > "FTP upload..."</code> window. This FTP address  contains the path to your personal subdirectory. Please manually copy this FTP path from the Annotare dialogue using right-click "Copy link" and paste it into the Windows Explorer address bar. It should look similar to this: <code>ftp://aexpress:aexpress1@ftp-private-2.ebi.ac.uk/ibtd1rmo-20r7k3g747sup/</code>. For all other submissions (e.g. array design), enter <code><strong>ftp://aexpress:aexpress1@ftp-private-2.ebi.ac.uk/</strong></code> in Windows Explorer address bar. The URLs already contain the username <code><strong>aexpress</strong></code> and password <code><strong>aexpress1</strong></code>, so you're logged in automatically after being connected to the FTP server.</p>
+		<p>If you are uploading files for an <strong>Annotare submission</strong>, you will have get the FTP address from your Annotare <code>"Upload and assign data files" > "FTP upload..."</code> window. This FTP address  contains the path to your personal subdirectory. Please manually copy this FTP path from the Annotare dialogue using right-click "Copy link" and paste it into the Windows Explorer address bar. It should look similar to this: <code>ftp://annotare:annotare1@ftp-private.ebi.ac.uk/prod/ibtd1rmo-20r7k3g747sup/</code>. For all other submissions (e.g. array design), enter <code><strong>ftp://annotare:annotare1@ftp-private.ebi.ac.uk/prod/</strong></code> in Windows Explorer address bar. The URLs already contain the username <code><strong>annotare</strong></code> and password <code><strong>annotare1</strong></code>, so you're logged in automatically after being connected to the FTP server.</p>
 		<p>If there are no error messages from Windows, that means connection is successful. (Unfortunately, Windows does not provide notification confirming successful connection to an FTP server.)  When connected, you will see an almost "blank" Windows Explorer window which is similar to this:</p>
 
 		<p><img src="../assets/img/ftp_upload_windows_explorer_FTP.png" alt="Windows Explorer FTP login image" style="width: 50%;"></p>
@@ -50,9 +50,9 @@ title: Annotare Help Page
 		<p>Make sure you are connected to the internet via a physical connection and <em>not</em> on a wireless connection.</p>
 
 		<p>1. Open a Terminal window and change to the directory containing the data files.<br>
-		2. Type: <code><strong>ftp -p ftp-private-2.ebi.ac.uk</strong></code> to connect to the FTP server.<br>
-		3. Enter username <code><strong>aexpress</strong></code> and password <code><strong>aexpress1</strong></code>.<br>
-		4. (<em>Annotare submissions only</em>) Change into the submission's subdirectory. You will find the path in Annotare by clicking on "FTP upload...". It should look similar to this: <code>ibtd1rmo-20r7k3g747sup</code>.<br>
+		2. Type: <code><strong>ftp -p ftp-private.ebi.ac.uk</strong></code> to connect to the FTP server.<br>
+		3. Enter username <code><strong>annotare</strong></code> and password <code><strong>annotare1</strong></code>.<br>
+		4. (<em>Annotare submissions only</em>) Change into the submission's subdirectory. You will find the path in Annotare by clicking on "FTP upload...". It should look similar to this: <code>/prod/ibtd1rmo-20r7k3g747sup</code>.<br>
 		In the terminal window type <code><strong>cd</strong></code> followed by the path name.<br>
 		5. Use the <code><strong>put</strong></code> command to place one file (or <code><strong>mput</strong></code> for multiple files) into the FTP directory.<br>
 		To exit FTP, type <code><strong>quit</strong></code>. On exiting you will get a message printed to screen to tell you whether your transfer was successful.</p>
@@ -69,10 +69,10 @@ title: Annotare Help Page
 		<ol>
 		    <li>Download the Aspera Command Line Client <a target="_blank" href="http://downloads.asperasoft.com/en/downloads/62">here</a> (choose the required platform) and run the installation process.</li>
 		    <li>Once the tool has been set up enter the following command to transfer a file:<br>
-		        <code><strong>ascp -P 33001 &lt;yourfile.txt&gt; aexpress@fasp.ebi.ac.uk:&lt;your upload directory&gt;&#47;</strong></code></li>
-		    <li>When prompted for a password enter <code><strong>aexpress1</strong></code>.</li>
+		        <code><strong>ascp -P 33001 &lt;yourfile.txt&gt; annotare@fasp.ebi.ac.uk:&lt;your upload directory&gt;&#47;</strong></code></li>
+		    <li>When prompted for a password enter <code><strong>annotare1</strong></code>.</li>
 		    <li>(<em>Annotare submissions only</em>) You can find your upload directory from Annotare under <code>"Assign data files"</code> by clicking on <code>"FTP/Aspera upload..."</code>. It should look similar to this:
-		        <code>abcd1efg-hijk2lmno3pqr</code>.<br>
+		        <code>prod/abcd1efg-hijk2lmno3pqr</code>.<br>
 		        Proceed to import the uploaded files to your submission, as described <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#ftp">here</a>.</li>
 		</ol>
     <br>
@@ -114,6 +114,7 @@ title: Annotare Help Page
 						<ul class="menu vertical nested is-active">
 							<li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#direct">Direct upload</a></li>
 							<li><a class="active" target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/ftp_upload.html">FTP/Aspera upload</a></li>
+							<li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/globus_upload.html">Globus upload</a></li>
 							<li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#ftp">Import FTP/Aspera uploaded files</a></li>
 							<li><a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/assign_files.html">Assign files</a></li>
 						</ul>
