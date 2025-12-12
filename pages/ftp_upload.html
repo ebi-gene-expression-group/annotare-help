@@ -57,7 +57,7 @@ title: Annotare Help Page
 		5. Use the <code><strong>put</strong></code> command to place one file (or <code><strong>mput</strong></code> for multiple files) into the FTP directory.<br>
 		To exit FTP, type <code><strong>quit</strong></code>. On exiting you will get a message printed to screen to tell you whether your transfer was successful.</p>
 
-		<p><img src="../assets/img/ftp_upload_instructions_terminal.png" alt="Terminal session for FTP upload" style="width: 50%;"></p>
+		<p><img src="../assets/img/ftp_upload.png" alt="Terminal session for FTP upload" style="width: 50%;"></p>
 
 		<p>Note: If you are using Mac, the file transfer may fail due to incompatible FTP settings of the standard FTP client on Mac (which is embedded in Finder). In this case you should be able to upload your files using an alternative FTP client, e.g. <a target="_blank" href="https://cyberduck.io/">CyberDuck</a>. If you have CyberDuck installed, you will be able to transfer files for your Annotare submission by clicking on the link with the FTP address in Annotare.</p>
 
@@ -67,13 +67,16 @@ title: Annotare Help Page
 
 		<p>Aspera is a commercial file transfer protocol that provides better transfer speeds than FTP over long distances.</p>
 		<ol>
-		    <li>Download the Aspera Command Line Client <a target="_blank" href="http://downloads.asperasoft.com/en/downloads/62">here</a> (choose the required platform) and run the installation process.</li>
-		    <li>Once the tool has been set up enter the following command to transfer a file:<br>
-		        <code><strong>ascp -P 33001 &lt;yourfile.txt&gt; annotare@fasp.ebi.ac.uk:&lt;your upload directory&gt;&#47;</strong></code></li>
+		    <li>Download the Aspera Transfer SDK from the following link: <a target="_blank" href="https://developer.ibm.com/apis/catalog/aspera--aspera-transfer-sdk/downloads/downloads.json">Aspera Transfer SDK - IBM API Hub - IBM Developer</a> (choose the required platform)</li>
+            <li>Unzip/untar into a suitable directory, for example, C:\aspera on Windows or /opt/aspera on Mac or Linux</li>
+            <li>You can ignore most of the directories that the SDK writes to your machine. Please navigate to the ./aspera/bin directory. This is the location where you will find the ascp binary. This directory is the one you will use to initiate Aspera transfers.</li>
+            <li>You can now simply execute ascp to start your transfer with the EMBL-EBI server.<br>
+		        <code><strong>ascp -P 33001 -c aes128gcm &lt;yourfile.txt&gt; annotare@fasp.ebi.ac.uk:&lt;your upload directory&gt;&#47;</strong></code></li>
 		    <li>When prompted for a password enter <code><strong>annotare1</strong></code>.</li>
-		    <li>(<em>Annotare submissions only</em>) You can find your upload directory from Annotare under <code>"Assign data files"</code> by clicking on <code>"FTP/Aspera upload..."</code>. It should look similar to this:
+		    <li>(<em>Annotare submissions only</em>) You can find your upload directory from Annotare submission page, by clicking on <code>"FTP/Aspera upload"</code> button. It should look similar to this:
 		        <code>prod/abcd1efg-hijk2lmno3pqr</code>.<br>
 		        Proceed to import the uploaded files to your submission, as described <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#ftp">here</a>.</li>
+            <li>For more information on how to use Aspera to transfer files, please follow this article: <a target="_blank" href="https://embl.service-now.com/kb?id=kb_article_view&sysparm_article=KB0011565">How to transfer files to and from EMBL-EBI using IBM Aspera</a></li>
 		</ol>
     <br>
 	</div>
