@@ -14,7 +14,6 @@
 <div class="row">
     {{ content }}
 </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.1/iframeResizer.contentWindow.min.js"></script>
 
 <!-- Scripts from the EMBL-EBI foundation framework v1.3 -->
@@ -24,6 +23,14 @@
 <script src="https://ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/js/foundationExtendEBI.js"></script>
 <script type="text/JavaScript">$(document).foundation();</script>
 <script type="text/JavaScript">$(document).foundationExtendEBI();</script>
-
+<script type="text/javascript">
+    // Since script.js is deferred, we call the function as soon as possible
+    // after the window (and deferred scripts) are ready
+    window.addEventListener('load', function() {
+        if (typeof closeDataProtectionBanner === 'function') {
+            closeDataProtectionBanner();
+        }
+    });
+</script>
 </body>
 </html>
