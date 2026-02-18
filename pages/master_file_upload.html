@@ -1,0 +1,347 @@
+---
+layout: default
+title: Annotare Help Page
+---
+
+<section id="annotare-help">
+
+<h2 id="upload-and-assign-files">Upload and Assign Files</h2>
+
+<p>This guide explains how to upload data files for your ArrayExpress submission through Annotare. The upload method you choose depends on your file sizes and the number of files in your submission.</p>
+
+<h3 id="before-you-start">Before You Start</h3>
+<ul>
+  <li><strong>File preparation:</strong> Please check the guidelines on submitting files for a microarray experiment, sequencing experiment, or array design and the accepted file formats for each. <strong>Insert link to accepted file formats section as a whole </strong></li>
+  <li>For example, microarray data files should not be compressed, but FASTQ files from sequencing experiments must be individually compressed using gzip or bzip2.</li>
+  <li><strong>File naming:</strong> Make sure file names contain only alphanumeric characters [A-Z, a-z, 0-9], underscores [_], and dots [.]. Do not use whitespaces, brackets, or other special characters.</li>
+</ul>
+
+<hr>
+
+<!-- ==========================================================
+     SECTION 1: DIRECT IN-BROWSER UPLOAD
+     ========================================================== -->
+<details id="direct" open>
+  <summary>1. Direct In-Browser Upload (Files &lt; 1 GB)</summary>
+  <div>
+
+    <p>Direct upload through the Annotare web interface is the simplest method and is suitable for <strong>individual files smaller than 1 GB</strong>. For larger files or submissions with many files, use one of the alternative upload methods described in <a href="#large-file-uploads">Section 2</a>.</p>
+
+    <h3 id="how-to-upload-directly">How to Upload Files Directly</h3>
+    <ol>
+      <li>In your Annotare submission, navigate to the file upload section.</li>
+      <li>Click <strong>Upload Files...</strong></li>
+      <li>Select the files from your computer. You can upload multiple files at once.</li>
+      <li>Wait for the upload to complete. The file upload pane can be accessed from all tabs, so you can continue filling in forms while files are uploading.</li>
+      <li>Once uploaded, proceed to assign files to your samples - see <a href="#assign-files">Section 3</a>.</li>
+    </ol>
+
+    <p><em><strong>Tip:</strong> Use time-saving features such as uploading multiple files in one go and bulk-assigning them to samples using the <strong>Paste Into Column</strong> button. (Watch a video tutorial <a href="https://www.youtube.com/watch?v=Cg-9iul8Fxw">here</a>)</em></p
+    
+    </div>
+</details>
+
+<hr>
+
+<!-- ==========================================================
+     SECTION 2: LARGE FILE UPLOADS
+     ========================================================== -->
+<details id="large-file-uploads" open>
+  <summary>2. Upload Methods for Large Files (≥ 1 GB)</summary>
+  <div>
+
+    <p>For files 1 GB or larger, or for submissions with many files (even if individual files are under 1 GB), use one of the following upload methods: FTP, Aspera, or Globus.</p>
+
+    <!-- ---- 2.1 FTP ---- -->
+    <details id="ftp">
+      <summary>2.1 FTP Upload</summary>
+
+        <p>FTP (File Transfer Protocol) is a standard method for transferring files. Ensure you are connected to the internet via a physical (wired) connection rather than wireless for best results.</p>
+
+        <h4 id="ftp-connection-details">FTP Connection Details</h4>
+        
+          <p><strong>Server:</strong> <code>ftp-private.ebi.ac.uk</code></p>
+          <p><strong>Username:</strong> <code>annotare</code></p>
+          <p><strong>Password:</strong> <code>annotare1</code></p>
+          
+        <!-- Windows FTP -->
+        <h4 id="ftp-windows">Windows Users (Windows Explorer)</h4>
+            <ol>
+              <li>Open a Windows Explorer window (not an internet browser).</li>
+              <li>In Annotare, go to <strong>"Upload and assign data files"</strong> &gt; <strong>"FTP upload..."</strong> and copy the FTP address shown.</li>
+              <li>Paste the FTP address into the Windows Explorer address bar. It should look similar to:<br>
+                <code>ftp://annotare:annotare1@ftp-private.ebi.ac.uk/prod/ibtd1rmo-20r7k3g747sup/</code></li>
+              <li>The URL contains the username and password, so you will be logged in automatically.</li>
+              <li>Drag and drop files from your computer into the Explorer window to upload.</li>
+            </ol>
+            
+        <p><em>Ask Jay to test this on his Windows machine and take screenshot.</em></p>
+
+        <!-- Terminal FTP -->
+        <h4 id="ftp-terminal">Mac/Linux/Windows Terminal Users</h4>
+          
+            <ol>
+              <li>Open a Terminal window and navigate to the directory containing your data files.</li>
+              <li>Connect to the FTP server: <code>ftp -p ftp-private.ebi.ac.uk</code></li>
+              <li>Enter username <code>annotare</code> and password <code>annotare1</code></li>
+              <li>Change to your submission's subdirectory. Find the path in Annotare by clicking <strong>"FTP upload..."</strong> (e.g., <code>/prod/ibtd1rmo-20r7k3g747sup</code>). Type: <code>cd /prod/your-directory-name</code></li>
+              <li>Upload files using <code>put filename</code> (single file) or <code>mput *</code> (multiple files).</li>
+              <li>Type <code>quit</code> to exit. You will see a message confirming whether the transfer was successful.</li>
+            </ol>
+
+            <p><img src="../assets/img/ftp_upload.png" alt="Terminal session for FTP upload" style="width:40%;"></p>
+
+            <p><strong>Note for Mac users:</strong> The standard FTP client on Mac (embedded in Finder) may fail due to incompatible settings. Consider using an alternative FTP client such as <a href="https://cyberduck.io/">CyberDuck</a>.</p>
+            
+    </details>
+
+    <!-- ---- 2.2 Aspera ---- -->
+    <details id="aspera">
+      <summary>2.2 Aspera Upload</summary>
+      
+        <p>Aspera is a commercial file transfer protocol that provides significantly better transfer speeds than FTP, especially over long distances. It is recommended for very large files or when FTP performance is inadequate.</p>
+
+        <h4 id="aspera-setup">Aspera Setup and Transfer</h4>
+        <ol>
+          <li><strong>Download the Aspera Transfer SDK:</strong> Visit the <a href="https://developer.ibm.com/apis/catalog/aspera--aspera-transfer-sdk/">IBM Developer website</a> and download the appropriate version for your operating system.</li>
+          <li><strong>Install:</strong> Unzip/untar the download into a suitable directory (e.g., <code>C:\aspera</code> on Windows or <code>/opt/aspera</code> on Mac/Linux).</li>
+          <li><strong>Locate the ascp binary:</strong> Navigate to the <code>./aspera/bin</code> directory where the <code>ascp</code> command-line tool is located.</li>
+          <li><strong>Get your upload directory:</strong> In Annotare, click <strong>"FTP/Aspera upload..."</strong> to find your submission's upload directory (e.g., <code>prod/abcd1efg-hijk2lmno3pqr</code>).</li>
+          <li><strong>Transfer files:</strong> Run the following command:
+            <pre>ascp -P 33001 -c aes128gcm &lt;yourfile.txt&gt; annotare@fasp.ebi.ac.uk:&lt;your upload directory&gt;/</pre>
+          </li>
+          <li>When prompted for a password, enter <code>annotare1</code></li>
+        </ol>
+
+        <p>For more information on using Aspera, see: <a href="https://embl.service-now.com/kb?id=kb_article_view&sysparm_article=KB0011565">How to transfer files to and from EMBL-EBI using IBM Aspera</a> (EMBL Service Now KB0011565).</p>
+    
+    
+    </details>
+
+    <!-- ---- 2.3 Globus ---- -->
+    <details id="globus">
+      <summary>2.3 Globus Upload</summary>
+
+        <p>Globus is an efficient solution for large file transfers, offering better reliability for uploading large data files. It is the recommended method for very large datasets.</p>
+
+        <h4>Setting up a Globus Account</h4>
+        <p>When accessing Globus for the first time, you have three authentication options:</p>
+        <ul>
+          <li><strong>Organizational Login (recommended):</strong> If your organization is listed in the dropdown menu, select it and proceed with your institutional credentials.</li>
+          <li><strong>Google/ORCID/GitHub Account:</strong> You can authenticate using your existing Google, ORCID, or GitHub account.</li>
+          <li><strong>Globus ID:</strong> You can create a Globus ID by signing up and verifying your email address.</li>
+        </ul>
+
+        <p><img src="../assets/img/globus_login_options.png" alt="Globus login options" style="width: 70%;"/></p>
+
+        <!-- Globus Option A -->
+        <h4 id="globus-browser">Option A: Browser Upload via Globus (for files &lt; 1 GB)</h4>
+            <ol>
+              <li>Open the Globus collection URL provided for your submission in Annotare.</li>
+              <li>Click <strong>Upload</strong> and then <strong>Select Files to Upload</strong>.</li>
+              <li>Allow authentication/consent for the Globus web app to perform HTTPS uploads.</li>
+              <li>Select files from your local directory and start uploading.</li>
+            </ol>
+
+        <!-- Globus Option B -->
+        <h4 id="globus-personal">Option B: Globus Personal Connect (recommended for files ≥ 1 GB)</h4>
+
+            <p>This is the recommended option for transferring multiple large files.</p>
+
+            <h4>Step 1: Install Globus Personal Connect</h4>
+            <p>Download and install the Globus Personal Connect client for your operating system:</p>
+            <ul>
+              <li>Windows: <a href="https://docs.globus.org/globus-connect-personal/install/windows/">Installation Guide</a></li>
+              <li>MacOS: <a href="https://docs.globus.org/globus-connect-personal/install/mac/">Installation Guide</a></li>
+              <li>Linux: <a href="https://docs.globus.org/globus-connect-personal/install/linux/">Installation Guide</a></li>
+            </ul>
+
+            <h4>Step 2: Set Up Your Local Collection</h4>
+            <p>Follow the installation instructions to set up your local endpoint/collection.</p>
+
+            <h4>Step 3: Transfer Files</h4>
+            <ol>
+              <li>Open <a href="https://app.globus.org/file-manager">https://app.globus.org/file-manager</a> in your browser.</li>
+              <li>Select <strong>"Set two panes"</strong> at the top of the page.</li>
+              <li>In the <strong>left pane</strong>, search for and select the collection ID provided for your submission in Annotare.</li>
+              <li>Click on the <strong>"Transfer or Sync to..."</strong> button.</li>
+              <li>In the <strong>right pane</strong>, search for and select your local collection that you created during setup.</li>
+              <li>In your local collection (right pane), select the files you want to transfer.</li>
+              <li>Click <strong>Start</strong> to begin the transfer task.</li>
+            </ol>
+            <p><strong>Important:</strong> Please select only files, not directories.</p>
+
+            <p><em>Insert image – new screenshot, better readable.</em></p>
+
+            <h4>Step 4: Check Transfer Status</h4>
+            <ul>
+              <li>After starting a transfer, click the <strong>Activity</strong> button in the left side menu.</li>
+              <li>This displays all your active and recent transfer tasks.</li>
+              <li>You can monitor progress, see completed transfers, and check for any errors.</li>
+              <li>You can also cancel ongoing transfers from this screen if needed.</li>
+            </ul>
+
+            <p>For more information about sharing data via Globus: <a href="https://www.globus.org/globus-connect-personal">https://www.globus.org/globus-connect-personal</a></p>
+
+    </details>
+
+    <!-- ---- 2.4 Calculating MD5 Checksums ---- -->
+    <details id="md5">
+      <summary>2.4 Calculating MD5 Checksums</summary>
+
+        <p>Before registering files uploaded via FTP, Aspera, or Globus, you must calculate the MD5 checksum for each file. The checksum is a hexadecimal "fingerprint" for a file (e.g., <code>eef75461035fb66d9173799d4e26ea97</code>). Annotare uses these checksums to verify file integrity after transfer.</p>
+
+        <p>You can watch a short video tutorial demonstrating how to calculate MD5 checksums for your files and use them to register your uploaded files in Annotare <a href="https://www.youtube.com/watch?v=M1qe2LfAcIc">here</a>.</p>
+
+        <h4>How to calculate MD5 checksums on different platforms</h4>
+
+        <!-- MD5 Windows -->
+        <h5>Windows</h5>
+          
+            <p>Open Command Prompt or PowerShell and run:</p>
+            <pre>certutil -hashfile &lt;filename&gt; MD5</pre>
+            <p>Alternatively, use a tool such as <a href="http://www.winmd5.com/">WinMD5</a>.</p>
+
+        <!-- MD5 MacOS -->
+        <h5>MacOS</h5>
+          
+            <p>Open Terminal and run:</p>
+            <pre>md5 &lt;filename&gt;</pre>
+            <p>For more details: <a href="https://osxdaily.com/2009/10/13/check-md5-hash-on-your-mac/">Mac MD5 guide</a>.</p>
+          
+
+        <!-- MD5 Linux -->
+        <h5>Linux</h5>
+            <p>Open a terminal and run:</p>
+            <pre>md5sum &lt;filename&gt;</pre>
+            <p>For more details: <a href="http://heatware.net/linux-unix/how-to-create-md5-checksums-and-validate-a-file-in-linux/">Linux MD5 guide</a>.</p>
+        
+    </details>
+
+    <!-- ---- 2.5 Registering Uploaded Files ---- -->
+    <details id="register">
+      <summary>2.5 Registering Uploaded Files in Annotare</summary>
+
+        <p><strong>This step is required for all files uploaded via FTP, Aspera, or Globus.</strong> After transferring your files, you must register them in Annotare with their MD5 checksums so that Annotare can verify the files are present and intact.</p>
+
+        <h4>How to Register Files</h4>
+        <ol>
+          <li>In your Annotare submission, navigate to the <strong>"Upload and assign data files"</strong> section.</li>
+          <li>Click the <strong>"FTP/Aspera Upload..."</strong> or <strong>"Globus Upload..."</strong> button (depending on your upload method).</li>
+          <li>In the dialog that appears, enter the <strong>file names</strong> and their corresponding <strong>MD5 checksums</strong>.</li>
+          <li>Click to submit/register the files.</li>
+          <li>Annotare will verify the presence of the files on the server and validate the MD5 checksums. Once verified, the files will appear in your submission and can be assigned to samples.</li>
+        </ol>
+
+          <strong>Important:</strong> For sequencing experiments, remember to use the checksum of the actual compressed file (e.g., the <code>.fastq.gz</code> file) that was transferred, not the uncompressed file.
+
+        <p>A short video tutorial demonstrating how to calculate MD5 checksums for your files and use them to register your uploaded files in Annotare is available  <a href="https://www.youtube.com/watch?v=M1qe2LfAcIc">here</a> </p>
+        
+        <p>Once the file registration is complete, your files will appear in the upload pane in Annotare with the status 'uploaded', which means they are ready to be assigned to samples - see <a href="#assign-files">Section 3</a>.</p>
+
+    </details>
+
+  </div>
+</details>
+
+<hr>
+
+<!-- ==========================================================
+     SECTION 3: ASSIGNING FILES TO SAMPLES
+     ========================================================== -->
+<details id="assign-files" open>
+  <summary>3. Assigning Files to Samples</summary>
+  <div>
+
+    <p>A submission is not complete without specifying which data file belongs to which sample. After uploading (and registering, if applicable), you must assign files to samples.</p>
+
+    <p><em><strong>Note:</strong> Files that are not assigned to any samples are not included in the submission and carried forward to processing.</em></p>
+
+    <!-- File Types -->
+    <h3>File Types</h3>
+        <p>Four types of data files are distinguished:</p>
+        <ul>
+          <li><strong>Raw Data File:</strong> Unprocessed data for a single sample</li>
+          <li><strong>Raw Matrix Data File:</strong> Unprocessed data containing multiple samples in one file</li>
+          <li><strong>Processed Data File:</strong> Processed/analysed data for a single sample</li>
+          <li><strong>Processed Matrix Data File:</strong> Processed data containing multiple samples in one file</li>
+        </ul>
+        <p><em><strong>Note:</strong> Data file types available for file assignment differ for different technology templates in Annotare.</em></p>
+    
+    <!-- How to Assign -->
+    <h3>How to Assign Files</h3>
+        <ol>
+          <li>Click <strong>Assign Files...</strong> and choose the appropriate file category.</li>
+          <li>Select the respective file name from the dropdown menu for each sample.</li>
+          <li>Repeat for each data type you want to include.</li>
+          <li>Use <strong>Fill Down Value</strong> and <strong>Paste Into Column</strong> to speed up the process. (Watch a video tutorial <a href="https://www.youtube.com/watch?v=M1qe2LfAcIc">here</a>)</li>
+        </ol>
+
+        <!-- Assign Raw Data Files -->
+        <details id="assign-raw">
+            <summary>Assign Raw Data Files</summary>
+            
+                <!-- Sequencing -->
+                <h4>Sequencing experiment</h4>
+                    <p>Sequencing experiments should contain individual sequencing raw read files for each sample. To assign raw sequencing files, select the file type "Raw". Then fill the columns with the names of the corresponding file for each sample.</p>
+                    <p>For experiments using <strong>paired-end sequencing</strong>, two individual raw read files should be provided. To assign both files to one sample, create two "Raw" data file columns by clicking on <strong>Assign Files...</strong> twice. Then link the two corresponding sequencing files to each sample.</p>
+                    <p><img src="../assets/img/files_seq_raw.png" alt="Raw file assignment for sequencing experiment" style="width:57%;"></p>
+                    
+
+                <!-- One-colour microarray -->
+                <h4>One-colour microarray experiment</h4>
+                    <p>For one-colour microarray experiments the raw output files can be either individual files per sample or a matrix file (e.g. Illumina arrays).</p>
+                    <p>If you have individual files per sample, create a "Raw Data File" column and assign each sample to the respective file. For raw data matrices, all samples need to be linked to the same data file. To do so, create a "Raw Matrix Data File" column and select the name of the matrix file. Use <strong>Fill Down Value</strong> to propagate the file name to all samples.</p>
+                    <p><img src="../assets/img/files_one-colour_raw.png" alt="Raw file assigmnet for one-colour microarray experiment" style="max-width:55%;"></p>
+
+                <!-- Two-colour microarray -->
+                <h4>Two-colour microarray experiment</h4>
+                    <p>Two-colour microarray experiments need extra attention when assigning data files to samples. The basic assumption is that the data for both channels are stored in the same file (2 samples → 1 hybridisation → 1 file). See the <a href="two_color_ma.html">two-colour microarrays help page</a> for more details.</p>
+                    <p>The basic steps are:</p>
+                    <ol>
+                        <li>Before assigning data files make sure to <a href="two_color_ma.html">select the correct label</a> for each of your samples. The panel on the right presents a list of the labeled extracts (Sample:Label combinations) that have been created.</li>
+                        <li>Press <strong>Assign Files...</strong> and create a "Raw Data File" column.</li>
+                        <li>Select the same file name for the two labelled extracts that belong to the same hybridisation. This should always be one Cy3-labelled extract and one Cy5-labelled extract that are connected via the same file name.</li>
+                    </ol>
+                    <p><img src="../assets/img/files_two-colour_simple_design.png" alt="Raw file assigment for simple two-colour microarray experiment" style="max-width:50%;"></p>
+
+                    <p>For two-colour microarray experiments that use a <strong>common reference sample</strong>, the reference sample needs to be duplicated for as many times as it was used on an array. Then assign each test sample and one of the reference samples per file. If the numbering of the reference sample should be removed, leave a comment about this in the feedback dialogue after submission.</p>
+                    <p><img src="../assets/img/files_two-colour_reference_design.png" alt="Raw file assigment for reference design two-colour microarray experiment" style="width:65%;"></p>
+
+                    <p>For a <strong>dye-swap design</strong>, leave both labels selected for each sample in "Create labeled extracts and assign labels". The list of labelled extracts should show each sample twice, each time with the respective label. Follow the same instructions as above to link the data files.</p>
+                    <p><img src="../assets/img/files_two-colour_dye-swap_design.png" alt="Raw file assigment for dye-swap design two-colour microarray experiment" style="width:70%;"></p>
+                
+                    
+        </details>
+
+    <!-- Assign Processed Data -->
+    <details id="assign-processed">
+      <summary>Assign Processed Data Files</summary>
+        <p>"Processed" data refers to all data files and formats that are derived from the raw files and have been manipulated in any way (e.g. background correction, log2 transformation, normalisation, read trimming).</p>
+        <p>To add processed data files, create another column by pressing <strong>Assign Files...</strong>. Then select "Processed" if you have a separate file for each sample, or "Processed Matrix" if you have a file which contains processed data for more than one sample. Proceed to select the filenames of your uploaded processed data files for the relevant sample(s).</p>
+        <p>If you would like to include any other additional data types, please upload the files and leave a note in the feedback dialogue after submission, and a curator will add the files as supplement to the submission.</p>
+        <p><img src="../assets/img/files_seq_processed.png" alt="Processed file assignment example" style="width:55%;"></p>
+    </details>
+
+    <!-- Technical Replicates -->
+    <details id="assign-tech-reps">
+      <summary>Technical Replicates</summary>
+      <div class="section-content">
+          <p><img src="../assets/img/files_technical_replicates.png" alt="File assignment for technical replicates" style="width:70%;"></p>
+
+        <h4>Sequencing experiment</h4>
+        <p>There are two different types of technical replicates:</p>
+        <ol>
+          <li><strong>Multiple libraries prepared from the same sample material (RNA/DNA extract):</strong> Create multiple sample rows and clearly name them with a suffix like "_library1", "_library2". This way you can also assign different <a href="seq_lib_spec.html">library specifications</a> to each library.</li>
+          <li><strong>The same sequencing library run on multiple lanes of a flow cell</strong> (this also includes multiple sequencing runs of the same library): Create as many "Raw Data File" columns as you have files per sample/library, to be able to assign all files to the same sample/library.</li>
+        </ol>
+
+        <h4>Microarray experiment</h4>
+        <p>If the same biological sample was tested on two different arrays, please create separate sample rows and assign one file to each of these technical replicates. Name your replicate samples with the same prefix and then add e.g. "_techrep1"/"_techrep2".</p>
+      </div>
+    </details>
+
+  </div>
+</details>
+
+</div>
