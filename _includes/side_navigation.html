@@ -1,0 +1,182 @@
+<div class="medium-3 columns sidebar">
+  <ul class="vertical menu accordion-menu" data-accordion-menu>
+    <li>
+      <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/index.html" {% if page.url == "/index.html" %}class="active"{% endif %}>Submission guide</a>
+    </li>
+    <li><a>Before you start</a>
+      <ul class="menu vertical nested 
+        {% if page.url == '/pages/what_to_submit.html'
+          or page.url == '/pages/uhts_submissions.html'
+          or page.url == '/pages/experiment_types.html'
+          or page.url == '/pages/accepted_raw_ma_file_formats.html' 
+          or page.url == '/pages/accepted_processed_ma_file_formats.html' 
+          or page.url contains 'accepted_sequencing_file_formats.html' 
+          or page.url == '/pages/pre-submission_checklist.html' 
+          or page.url == '/pages/adf_submissions_overview.html'
+          or page.url == '/pages/SEQ_Spatial_Transcriptomics.html'
+        %}is-active{% endif %}">
+        <li>
+          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/what_to_submit.html" {% if page.url == "/pages/what_to_submit.html" %}class="active"{% endif %}>Submission overview</a>
+            <ul class="menu vertical nested
+              {% if page.url == '/pages/what_to_submit.html'
+                or page.url == '/pages/uhts_submissions.html'
+                or page.url  == '/pages/experiment_types.html'
+              %}is-active{% endif %}">
+              <li>
+                <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/what_to_submit.html" {% if page.url == "/pages/what_to_submit.html" %}class="active"{% endif %}>What datasets can be submitted?</a>
+              </li>
+              <li>
+                <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/uhts_submissions.html" {% if page.url == "/pages/uhts_submissions.html" %}class="active"{% endif %}>Sequencing submissions</a>
+              </li>
+              <li>
+                <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/experiment_types.html" {% if page.url == "/pages/experiment_types.html" %}class="active"{% endif %}>Experiment types in ArrayExpress</a>
+              </li>
+              <li>
+                <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/what_to_submit.html#what_to_prepare" {% if page.url == "/pages/what_to_submit.html" %}class="active"{% endif %}>What do I need to prepare?</a>
+              </li>
+            </ul>
+        </li>
+        <li><a>Accepted file formats</a>
+          <ul class="menu vertical nested 
+            {% if page.url == '/pages/accepted_raw_ma_file_formats.html' 
+              or page.url == '/pages/accepted_processed_ma_file_formats.html' 
+              or page.url contains 'accepted_sequencing_file_formats.html' 
+            %}is-active{% endif %}">
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/accepted_raw_ma_file_formats.html" {% if page.url == "/pages/accepted_raw_ma_file_formats.html" %}class="active"{% endif %}>Microarray raw data</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/accepted_processed_ma_file_formats.html" {% if page.url == "/pages/accepted_processed_ma_file_formats.html" %}class="active"{% endif %}>Microarray processed data</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/accepted_sequencing_file_formats.html#raw_data_files" {% if page.url contains "accepted_sequencing_file_formats.html" %}class="active"{% endif %}>Sequencing raw data</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/accepted_sequencing_file_formats.html#processed_data" {% if page.url contains "accepted_sequencing_file_formats.html" %}class="active"{% endif %}>Sequencing processed data</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/pre-submission_checklist.html" {% if page.url == "/pages/pre-submission_checklist.html" %}class="active"{% endif %}>Pre-submission checklist</a>
+        </li>
+        <li>
+          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/adf_submissions_overview.html" {% if page.url == "/pages/adf_submissions_overview.html" %}class="active"{% endif %}>Array design submissions</a>
+        </li>
+        <li>
+          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/SEQ_Spatial_Transcriptomics.html" {% if page.url == "/pages/SEQ_Spatial_Transcriptomics.html" %}class="active"{% endif %}>Sequencing-Based Spatial Transcriptomics</a>
+        </li>
+      </ul>
+    </li>
+    <li><a>Annotare step-by-step</a>
+      <ul class="menu vertical nested 
+        {% if page.url == '/pages/getting_started.html' 
+          or page.url == '/pages/time_saving_features.html' 
+          or page.url == '/pages/describe_exp.html' 
+          or page.url == '/pages/sample_attributes.html' 
+          or page.url == '/pages/seq_lib_spec.html' 
+          or page.url == '/pages/single-cell_submission_guide.html' 
+          or page.url == '/pages/two_color_ma.html' 
+          or page.url contains 'file_upload.html'
+          or page.url == '/pages/globus_upload.html'
+          or page.url == '/pages/ftp_upload.html' 
+          or page.url == '/pages/assign_files.html' 
+          or page.url contains 'validate_exp.html' 
+          or page.url == '/pages/submit_exp.html' 
+        %}is-active{% endif %}">
+        <li>
+          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/getting_started.html" {% if page.url == "/pages/getting_started.html" %}class="active"{% endif %}>Getting started</a>
+        </li>
+        <li>
+          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/time_saving_features.html" {% if page.url == "/pages/time_saving_features.html" %}class="active"{% endif %}>Time-saving features</a>
+        </li>
+        <li>
+          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/describe_exp.html" {% if page.url == "/pages/describe_exp.html" %}class="active"{% endif %}>Describe experiment</a>
+        </li>
+        <li>
+          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/sample_attributes.html" {% if page.url == "/pages/sample_attributes.html" %}class="active"{% endif %}>Sample attributes and protocols</a>
+        </li>
+        <li><a>Technology-specific details</a>
+          <ul class="menu vertical nested
+            {% if page.url == '/pages/seq_lib_spec.html' 
+              or page.url == '/pages/single-cell_submission_guide.html' 
+              or page.url == '/pages/two_color_ma.html' 
+            %}is-active{% endif %}">
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/seq_lib_spec.html" {% if page.url == "/pages/seq_lib_spec.html" %}class="active"{% endif %}>Sequencing library information</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/single-cell_submission_guide.html" {% if page.url == "/pages/single-cell_submission_guide.html" %}class="active"{% endif %}>Single cell information</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/two_color_ma.html" {% if page.url == "/pages/two_color_ma.html" %}class="active"{% endif %}>Two-colour experiments</a>
+            </li>
+          </ul>
+        </li>
+        <li><a>Upload and assign files</a>
+          <ul class="menu vertical nested
+            {% if page.url contains 'file_upload.html' 
+              or page.url == '/pages/ftp_upload.html'
+              or page.url == '/pages/globus_upload.html'
+              or page.url == '/pages/assign_files.html' 
+            %}is-active{% endif %}">
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#direct" {% if page.url contains "file_upload.html" %}class="active"{% endif %}>Direct upload</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/ftp_upload.html" {% if page.url == "/pages/ftp_upload.html" %}class="active"{% endif %}>FTP/Aspera upload</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/globus_upload.html" {% if page.url == "/pages/globus_upload.html" %}class="active"{% endif %}>Globus upload</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#ftp" {% if page.url contains "file_upload.html" %}class="active"{% endif %}>Import FTP/Aspera uploaded files</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/assign_files.html" {% if page.url == "/pages/assign_files.html" %}class="active"{% endif %}>Assign files</a>
+            </li>
+          </ul>
+        </li>
+        <li><a>Validate and submit</a>
+          <ul class="menu vertical nested
+            {% if page.url contains 'validate_exp.html' 
+              or page.url == '/pages/submit_exp.html' 
+            %}is-active{% endif %}">
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/validate_exp.html#validate" {% if page.url contains "validate_exp.html" %}class="active"{% endif %}>What is validation?</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/submit_exp.html" {% if page.url == "/pages/submit_exp.html" %}class="active"{% endif %}>Submit, and what happens next?</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/submit_exp.html#save_sub" {% if page.url == "/pages/submit_exp.html" %}class="active"{% endif %}>Saving a copy of your submission</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a>After submission</a>
+      <ul class="menu vertical nested
+        {% if page.url == '/pages/after_sub_private_access.html' 
+          or page.url == '/pages/after_sub_modify_data.html' 
+          or page.url == '/pages/after_sub_data_availability.html' 
+        %}is-active{% endif %}">
+        <li>
+          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/after_sub_private_access.html" {% if page.url == "/pages/after_sub_private_access.html" %}class="active"{% endif %}>Access private experiments</a>
+        </li>
+        <li>
+          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/after_sub_modify_data.html" {% if page.url == "/pages/after_sub_modify_data.html" %}class="active"{% endif %}>Modify or remove an existing experiment</a>
+        </li>
+        <li>
+          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/after_sub_data_availability.html" {% if page.url == "/pages/after_sub_data_availability.html" %}class="active"{% endif %}>Data availability and release policy</a>
+          {% if page.url == '/pages/after_sub_data_availability.html'%}
+          <ul class="menu vertical nested is-active">
+            <li><a href="#general">General information</a></li>
+            <li><a href="#release">Release policy</a></li>
+            <li><a href="#retention">Annotare Data Retention Policy</a></li>
+          </ul>
+          {% endif %}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div> <!-- /medium-3 -->
