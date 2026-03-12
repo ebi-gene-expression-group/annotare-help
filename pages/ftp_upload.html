@@ -22,25 +22,31 @@ title: Annotare Help Page
 		<br>
 
 		<p>
-		  <a href="#WindowsFTP">1. FTP upload instruction for Windows Explorer users</a><br>
+		  <a href="#WindowsFTP">1. FTP upload instruction for Windows users (FileZilla)</a><br>
 		  <a href="#TerminalFTP">2. FTP upload instruction for terminal/command prompt users</a><br>
 		  <a href="#Aspera">3. Aspera upload instruction</a><br>
 		</p>
 
     <p>&nbsp;</p>
     <hr />
-		<h3 id="WindowsFTP">1. Transferring files via FTP using Windows Explorer (drag and drop)</h3>
+		<h3 id="WindowsFTP">1. Transferring files via FTP using FileZilla (Windows Users)</h3>
 
-		<p>Make sure you are connected to the internet via a physical connection and <em>not</em> on a wireless connection.</p>
+		<p>We recommend using <a target="_blank" href="https://filezilla-project.org/">FileZilla</a> as an FTP client for Windows users. Windows File Explorer is not recommended as it may not support all FTP features and can be less secure.</p>
 
-		<p>Open a Windows Explorer window (and <em>not</em> an internet browser window as the latter is not designed for FTP file upload). If you need help how to open an Explorer window, here are instructions for <a target="_blank" href="https://www.wikihow.com/Open-Windows-Explorer#Windows_7_and_Vista_sub">Windows XP/Vista/7</a>, <a target="_blank" href="http://www.7tutorials.com/7-ways-open-file-explorer-windows-81">Windows 8</a> and <a target="_blank" href="http://www.7tutorials.com/9-ways-open-file-explorer-windows-10">Windows 10</a>.</p>
-
-		<p>If you are uploading files for an <strong>Annotare submission</strong>, you will have get the FTP address from your Annotare <code>"Upload and assign data files" > "FTP upload..."</code> window. This FTP address  contains the path to your personal subdirectory. Please manually copy this FTP path from the Annotare dialogue using right-click "Copy link" and paste it into the Windows Explorer address bar. It should look similar to this: <code>ftp://annotare:annotare1@ftp-private.ebi.ac.uk/prod/ibtd1rmo-20r7k3g747sup/</code>. For all other submissions (e.g. array design), enter <code><strong>ftp://annotare:annotare1@ftp-private.ebi.ac.uk/prod/</strong></code> in Windows Explorer address bar. The URLs already contain the username <code><strong>annotare</strong></code> and password <code><strong>annotare1</strong></code>, so you're logged in automatically after being connected to the FTP server.</p>
-		<p>If there are no error messages from Windows, that means connection is successful. (Unfortunately, Windows does not provide notification confirming successful connection to an FTP server.)  When connected, you will see an almost "blank" Windows Explorer window which is similar to this:</p>
-
-		<p><img src="../assets/img/ftp_upload_windows_explorer_FTP.png" alt="Windows Explorer FTP login image" style="width: 50%;"></p>
-
-		<p>You can start dragging files from your computer's file system and dropping them onto the logged-on Windows Explorer window.</p>
+		<ol>
+			<li>Download and install the <strong>FileZilla Client</strong> from <a target="_blank" href="https://filezilla-project.org/">filezilla-project.org</a>.</li>
+			<li>Open FileZilla and enter the following in the Quickconnect bar at the top:
+				<ul>
+					<li><strong>Host:</strong> <code>ftp-private.ebi.ac.uk</code></li>
+					<li><strong>Username:</strong> <code>annotare</code></li>
+					<li><strong>Password:</strong> <code>annotare1</code></li>
+					<li><strong>Port:</strong> <code>21</code></li>
+				</ul>
+			</li>
+			<li>Click <strong>Quickconnect</strong>.</li>
+			<li>In the <strong>Remote site</strong> pane (on the right), navigate to your submission's subdirectory. You can find the path in Annotare by clicking on <strong>"FTP/Aspera Upload..."</strong> (e.g., <code>/prod/ibtd1rmo-20r7k3g747sup</code>).</li>
+			<li>To upload files, drag and drop them from your local computer (left pane) to the remote server directory (right pane).</li>
+		</ol>
 
 
     <p>&nbsp;</p>
