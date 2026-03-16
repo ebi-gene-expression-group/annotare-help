@@ -1,0 +1,149 @@
+---
+layout: default
+title: Annotare Help Page
+---
+
+<section id="annotare-help">
+    
+    <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+    
+    <p>Common questions about submitting data through Annotare to the ArrayExpress collection in BioStudies.</p>
+    
+    
+    <!-- ═══════════════════════════════════════ -->
+    <!-- FAQ Entries -->
+    <!-- ═══════════════════════════════════════ -->
+    
+    <details id="organism-not-in-annotare">
+        <summary class="summary-secondary">My organism is not available in the Annotare dropdown. Can I still submit?</summary>
+        <div class="details-content">
+            
+            <p>Yes. As long as your organism is listed in the <a href="https://www.ncbi.nlm.nih.gov/taxonomy">NCBI Taxonomy</a>, you can use it in your submission.</p>
+            <p>To enter the species name, select the top cell of the organism column in the Annotare samples table and click <strong>Paste Into Column</strong>. Type or paste the NCBI-compliant Latin species name, then use <strong>Fill Down Value</strong> to propagate it to all samples.</p>
+        </div>
+    </details>
+    
+    <details id="sequencing-platform-missing">
+        <summary class="summary-secondary">The sequencing platform I used is not listed in Annotare. What should I do?</summary>
+        <div class="details-content">
+            
+            <p>We are aware that some newer platforms may be missing from the list and have reported this to our collaborators. In the meantime, please use the following workaround:</p>
+            # add steps styling here
+            <p><strong>1.</strong> Select any available platform in the hardware field as a temporary placeholder.</p>
+            <p><strong>2.</strong> Mention the actual platform used (e.g. [platform name]) in your protocol description.</p>
+            <p><strong>3.</strong> Send us a note about this change via the <strong>Contact Us</strong> button in Annotare. A curator will correct the platform information during curation.</p>
+        </div>
+    </details>
+    
+    <details id="data-validation-error">
+        <summary class="summary-secondary">After submission I got a data validation error email. What does it mean?</summary>
+        <div class="details-content">
+            
+            <p>Raw data files are run through an automatic data validation process to ensure they are not corrupted and comply with the raw data file requirements. If there are issues with any of the submitted files, an error report is automatically sent to the Annotare account holder's email.</p>
+            <p>For a full description of the common file validation errors and how to fix them, please refer to the <mark>guide [page to be created]</mark>.</p>
+            
+        </div>
+    </details>
+    
+    <details id="make-experiment-public">
+        <summary class="summary-secondary">How do I make my experiment public or change the release date?</summary>
+        <div class="details-content">
+            <p>To change the release date or make other post-submission modifications (such as adding a publication), use the <a href="https://www.ebi.ac.uk/biostudies/submissions/">BioStudies submission tool</a>.</p>
+            <p>If you have not yet activated your BioStudies account, go to the submission tool and use the <strong>Resend activation email</strong> option. If you have already activated your account but forgotten your password, use the <strong>Forgot password</strong> option. Detailed instructions are available <a href="https://www.ebi.ac.uk/biostudies/arrayexpress/help#ae-access">here</a>.</p>
+        </div>
+    </details>
+    
+    
+    <details id="add-publication">
+        <summary class="summary-secondary">How do I add publication details to my dataset?</summary>
+        <div class="details-content">
+            <p>Adding a publication is a post-submission modification. Please log in to the <a href="https://www.ebi.ac.uk/biostudies/submissions/">BioStudies submission tool</a> to make this change. If you need help accessing your account, see the <a href="https://www.ebi.ac.uk/biostudies/arrayexpress/help#ae-access">account activation instructions</a>.</p>
+            
+        </div>
+    </details>
+    
+    <details id="no-raw-data-privacy">
+        <summary class="summary-secondary">I have human data with privacy concerns and cannot submit raw data. Can I still use ArrayExpress?</summary>
+        <div class="details-content">
+            <p>Yes. ArrayExpress accepts submissions with processed data only when there are data privacy concerns. For more details, see the <a href="https://www.ebi.ac.uk/fg/annotare/help/uhts_submissions.html#HumanIdentifiableData">guidance on human-identifiable data</a>.</p>
+            <p>To submit without raw data:</p>
+            
+            # add steps styling here
+            <p><strong>1.</strong> Start your submission in <a href="https://www.ebi.ac.uk/fg/annotare/">Annotare</a> as normal and fill in all metadata fields.</p>
+            <p><strong>2.</strong> Assign all data files as <strong>Processed Data File</strong>.</p>
+            <p><strong>3.</strong> When your only remaining validation error is the one requesting a raw data column, contact us via the <strong>Contact Us</strong> button (citing your ticket number). A curator will submit the experiment on your behalf.</p>
+            <p>If you plan to deposit raw data in the EGA or another controlled-access archive, please send us the relevant accession numbers so we can link to the underlying raw data.</p>
+        </div>
+    </details>
+    
+    <details id="data-already-in-ena">
+        <summary class="summary-secondary">My raw data is already in ENA. Can I link it to an ArrayExpress record?</summary>
+        <div class="details-content">
+            
+            <p>Yes, we can create a link from your ArrayExpress record to an existing ENA project. Please note the following:</p>
+            
+            # add note styling here
+            <p><strong>Release dates and metadata are managed independently.</strong> Because the ENA submission was created under your personal account, release date synchronisation will not work automatically. Changes to experiment metadata in one archive will not be reflected in the other.</p>
+            <p><strong>How to submit:</strong></p>
+            # add note styling here
+            <p><strong>1.</strong> Start your submission in Annotare and fill out all required fields and sample attributes.</p>
+            <p><strong>2.</strong> Assign all data files as processed data.</p>
+            <p><strong>3.</strong> Enter your ENA study accession (ERP&hellip;) in the <strong>Related Accession Number</strong> field on the General Information tab.</p>
+            <p><strong>4.</strong> Add the ENA sample (ERS&hellip;) and run (ERR&hellip;) accessions as sample attributes so that the data can be mapped unambiguously.</p>
+            <p><strong>5.</strong> Validate your submission. Once the only remaining error is about missing raw data files, contact us and a curator will submit the experiment on your behalf.</p>
+            
+            # add note styling here
+            <strong>Recommendation for future submissions:</strong> We strongly recommend submitting all data, including raw files, directly through ArrayExpress. We will broker the raw data to ENA on your behalf, giving you a single record to manage. Any subsequent changes will propagate automatically to ENA, and no curator intervention will be needed.
+        </div>
+    </details>
+    
+    <details id="spatial-transcriptomics">
+        <summary class="summary-secondary">Can I submit spatial transcriptomics data to ArrayExpress?</summary>
+        <div class="details-content">
+            
+            <p><strong>Sequencing-based spatial transcriptomics</strong> can be submitted to ArrayExpress via Annotare. Please follow the <a href="https://www.ebi.ac.uk/fg/annotare/help/SEQ_Spatial_Transcriptomics.html">spatial transcriptomics submission guide</a>.</p>
+            <p><strong>Imaging-based spatial transcriptomics</strong> data should be submitted to the <a href="https://www.ebi.ac.uk/bioimage-archive/submit/">BioImage Archive</a> instead.</p>
+        </div>
+    </details>
+    
+    <details id="access-private-submission">
+        <summary class="summary-secondary">How can I access my submission whilst it is private?</summary>
+        <div class="details-content">
+            
+            <p>After your experiment is submitted in Annotare it is validated, processed and loaded to the ArrayExpress collection in BioStudies for permanent archival.</p>
+            <p>To view your experiment in ArrayExpress while it is still private, you need to first activate the BioStudies account that is automatically created for the 'submitter' contact. You will receive an activation link by email after your experiment has been loaded. Alternatively, go to the <a href="https://www.ebi.ac.uk/biostudies/submissions/">BioStudies submission tool</a> and use the <strong>Resend activation email</strong> option. If you have already activated your account but forgotten your password, use the <strong>Forgot password</strong> option. Detailed instructions are available <a href="https://www.ebi.ac.uk/biostudies/arrayexpress/help#ae-access">here</a>.</p>
+        </div>
+    </details>
+    
+    <details id="reviewer-access">
+        <summary class="summary-secondary">How can I give access to my private experiment to reviewers?</summary>
+        <div class="details-content">
+            <p>Once your experiment has been successfully processed and loaded to the ArrayExpress collection in BioStudies, you can share a tokenised access link with your reviewers. This will allow them to access the experiment page whilst it is still private (with author details redacted if the double-blind review option had been selected in Annotare during submission).</p>
+            <p>To view the link, log in to BioStudies using your BioStudies account credentials and click on the <strong>Share</strong> button on the top right.</p>
+        </div>
+    </details>
+    
+    <details id="ena-links-not-working">
+        <summary class="summary-secondary">Why are the links to my raw sequencing data in ENA not working in my private experiment?</summary>
+        <div class="details-content">
+            
+            <p>As long as your experiment is in private status, the links to the data files and study in ENA (European Nucleotide Archive, part of the INSDC consortium) are placeholders that will be automatically activated when the experiment is publicly released.</p>
+            <p>Reviewers can log in to ArrayExpress and see the metadata record and processed data whilst the experiment is private, but raw data cannot be downloaded. This is because the INSDC consortium does not provide infrastructure for restricted access to private data (you can find more details about the policy <a href="https://www.ebi.ac.uk/ena/browser/about/policies">here</a>).</p>
+            <p>This is standard practice across all INSDC archives and should not normally cause issues with journal reviewers. If you need further assistance or confirmation, please contact our help desk.</p>
+        </div>
+    </details>
+    
+    <details id="modify-after-submission">
+        <summary class="summary-secondary">Can a submission be changed after it was submitted and loaded to ArrayExpress?</summary>
+        <div class="details-content">
+            
+            <p>Yes, your experiment can still be modified after it has been loaded to the ArrayExpress collection in BioStudies. However, there are some restrictions for data that has already been released to public and/or referenced in a citable publication. Please see our <a href="/fg/annotare/help/modify_data_loaded_in_AE.html">guide</a> for more information.</p>
+        </div>
+    </details>
+    
+    <!-- Footer note -->
+    <p style="margin-top: 40px; padding-top: 16px; border-top: 1px solid #d8dde3; color: #6b7a8d; font-size: 14px; font-style: italic;">
+    For further assistance, please use the <strong style="color: #555;">Contact Us</strong> button within Annotare.
+    </p>
+    
+    </section>
