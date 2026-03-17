@@ -38,8 +38,11 @@ h3 {
   }
 
 h4 {
-  font-size: 22px;
-  color: #207AFF;
+    color: #445588;
+}
+
+h5 {
+    color: lightslategrey;
 }
 
 img {
@@ -74,8 +77,29 @@ ul.vertical li li a {
     border-bottom-style: solid
 }
 
+.summary-primary {
+    color: #207A7A;
+    font-size: 24px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.summary-secondary {
+    color: #207A7A;
+    font-size: 20px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
 .c1 {
     color: #000000;
     font-weight: 700;
     font-size: 11pt;
+}
+
+.details-content {
+    padding: 10px 0 0 20px;
+    overflow: hidden;
+    /* Basic state for JS-driven animations */
+    will-change: transform, opacity, height;
 }

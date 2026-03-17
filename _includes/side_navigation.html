@@ -77,9 +77,6 @@
           or page.url == '/pages/single-cell_submission_guide.html' 
           or page.url == '/pages/two_color_ma.html' 
           or page.url contains 'file_upload.html'
-          or page.url == '/pages/globus_upload.html'
-          or page.url == '/pages/ftp_upload.html' 
-          or page.url == '/pages/assign_files.html' 
           or page.url contains 'validate_exp.html' 
           or page.url == '/pages/submit_exp.html' 
         %}is-active{% endif %}">
@@ -114,25 +111,25 @@
         </li>
         <li><a>Upload and assign files</a>
           <ul class="menu vertical nested
-            {% if page.url contains 'file_upload.html' 
-              or page.url == '/pages/ftp_upload.html'
-              or page.url == '/pages/globus_upload.html'
-              or page.url == '/pages/assign_files.html' 
+            {% if page.url contains 'file_upload.html'
             %}is-active{% endif %}">
             <li>
-              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#direct" {% if page.url contains "file_upload.html" %}class="active"{% endif %}>Direct upload</a>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#direct" {% if page.url == "/pages/file_upload.html" %}class="active"{% endif %}>Direct upload</a>
             </li>
             <li>
-              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/ftp_upload.html" {% if page.url == "/pages/ftp_upload.html" %}class="active"{% endif %}>FTP/Aspera upload</a>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#globus" {% if page.url contains "file_upload.html" %}class="active"{% endif %}>Globus upload</a>
             </li>
             <li>
-              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/globus_upload.html" {% if page.url == "/pages/globus_upload.html" %}class="active"{% endif %}>Globus upload</a>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#ftp" {% if page.url contains "file_upload.html" %}class="active"{% endif %}>FTP upload</a>
             </li>
             <li>
-              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#ftp" {% if page.url contains "file_upload.html" %}class="active"{% endif %}>Import FTP/Aspera uploaded files</a>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#aspera" {% if page.url contains "file_upload.html" %}class="active"{% endif %}>Aspera upload</a>
             </li>
             <li>
-              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/assign_files.html" {% if page.url == "/pages/assign_files.html" %}class="active"{% endif %}>Assign files</a>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#register" {% if page.url contains "file_upload.html" %}class="active"{% endif %}>Register uploaded files</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#assign-files" {% if page.url contains "file_upload.html" %}class="active"{% endif %}>Assign files</a>
             </li>
           </ul>
         </li>
