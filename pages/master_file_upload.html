@@ -69,8 +69,10 @@ title: Annotare Help Page
 
               <p><img src="../assets/img/globus_login_options.png" alt="Globus login options" style="width: 70%;"/></p>
 
+              <h4 id="globus-transfer">Transferring Files via Globus</h4>
+              <p>Once you have a Globus account, you can transfer files using one of the following methods:</p>
               <!-- Globus Option A -->
-              <h4 id="globus-browser">Option A: Browser Upload via Globus (for files &lt; 1 GB)</h4>
+              <h5 id="globus-browser">Option A: Browser Upload via Globus (for files &lt; 1 GB)</h5>
               <ol>
                   <li>Open the Globus collection URL provided for your submission in Annotare.</li>
                   <li>Click <strong>Upload</strong> and then <strong>Select Files to Upload</strong>.</li>
@@ -79,11 +81,11 @@ title: Annotare Help Page
               </ol>
 
               <!-- Globus Option B -->
-              <h4 id="globus-personal">Option B: Globus Personal Connect (recommended for files ≥ 1 GB)</h4>
+              <h5 id="globus-personal">Option B: Globus Personal Connect (recommended for files ≥ 1 GB)</h5>
 
               <p>This is the recommended option for transferring multiple large files.</p>
 
-              <h4>Step 1: Install Globus Personal Connect</h4>
+              <h5>Step 1: Install Globus Personal Connect</h5>
               <p>Download and install the Globus Personal Connect client for your operating system:</p>
               <ul>
                   <li>Windows: <a href="https://docs.globus.org/globus-connect-personal/install/windows/">Installation Guide</a></li>
@@ -91,31 +93,29 @@ title: Annotare Help Page
                   <li>Linux: <a href="https://docs.globus.org/globus-connect-personal/install/linux/">Installation Guide</a></li>
               </ul>
 
-              <h4>Step 2: Set Up Your Local Collection</h4>
+              <h5>Step 2: Set Up Your Local Collection</h5>
               <p>Follow the installation instructions to set up your local endpoint/collection.</p>
 
-              <h4>Step 3: Transfer Files</h4>
+              <h5>Step 3: Transfer Files</h5>
               <ol>
-                  <li>Open <a href="https://app.globus.org/file-manager">https://app.globus.org/file-manager</a> in your browser.</li>
-                  <li>Select <strong>"Set two panes"</strong> at the top of the page.</li>
-                  <li>In the <strong>left pane</strong>, search for and select the collection ID provided for your submission in Annotare.</li>
+                  <li>Open the Globus collection URL provided for your submission in Annotare or <a href="https://app.globus.org/file-manager">https://app.globus.org/file-manager</a> in your browser.</li>
+                  <li>In the top right corner, for Panels  Select <strong>"Set two panes"</strong> option.</li>
+                  <li>In the <strong>left pane</strong>, search for and select the collection ID provided for your submission in Annotare. (This would be automatically selected if you directly open collection URL from Annotare)</li>
                   <li>Click on the <strong>"Transfer or Sync to..."</strong> button.</li>
-                  <li>In the <strong>right pane</strong>, search for and select your local collection that you created during setup.</li>
-                  <li>In your local collection (right pane), select the files you want to transfer.</li>
-                  <li>Click <strong>Start</strong> to begin the transfer task.</li>
+                  <li>In the <strong>right pane</strong>, search for and select your local collection that you created during Globus Personal Connect setup.</li>
+                  <li>In your local collection (right pane), navigate to your local directory and select the files you want to transfer.</li>
+                  <li>Click <strong>Start</strong> button to begin the transfer task.</li>
               </ol>
               <p><strong>Important:</strong> Please select only files, not directories.</p>
 
-              <p><em>Insert image – new screenshot, better readable.</em></p>
-
-              <h4>Step 4: Check Transfer Status</h4>
+              <h5>Step 4: Check Transfer Status</h5>
               <ul>
-                  <li>After starting a transfer, click the <strong>Activity</strong> button in the left side menu.</li>
+                  <li>After starting a transfer, click the <strong>Activity</strong> button on the left side menu.</li>
                   <li>This displays all your active and recent transfer tasks.</li>
                   <li>You can monitor progress, see completed transfers, and check for any errors.</li>
                   <li>You can also cancel ongoing transfers from this screen if needed.</li>
               </ul>
-
+              <p><img src="../assets/img/globus_file_explorer.png" style="width: 100%;"></p>
               <p>For more information about sharing data via Globus: <a href="https://www.globus.org/globus-connect-personal">https://www.globus.org/globus-connect-personal</a></p>
 
           </div>

@@ -37,7 +37,13 @@ h3 {
   color: #207A7A;
   }
 
+h4 {
+    color: #445588;
+}
 
+h5 {
+    color: lightslategrey;
+}
 
 img {
     width: 70%;
