@@ -99,4 +99,7 @@ ul.vertical li li a {
 
 .details-content {
     padding: 10px 0 0 20px;
+    overflow: hidden;
+    /* Basic state for JS-driven animations */
+    will-change: transform, opacity, height;
 }

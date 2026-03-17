@@ -31,6 +31,56 @@
             closeDataProtectionBanner();
         }
     });
+
+    /**
+     * Re-triggerable slide-down animation for <details> elements.
+     * Uses Web Animations API for high performance and reliability.
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+        const detailsElements = document.querySelectorAll('details');
+        
+        detailsElements.forEach((details) => {
+            const summary = details.querySelector('summary');
+            const content = details.querySelector('.details-content');
+
+            if (!summary || !content) return;
+
+            summary.addEventListener('click', (e) => {
+                // Prevent the browser from toggling 'open' immediately
+                e.preventDefault();
+
+                if (details.open) {
+                    // Start closing animation
+                    const startHeight = content.offsetHeight;
+                    const anim = content.animate([
+                        { height: `${startHeight}px`, opacity: 1, transform: 'translateY(0)' },
+                        { height: '0px', opacity: 0, transform: 'translateY(-10px)' }
+                    ], { duration: 300, easing: 'ease-in-out' });
+
+                    anim.onfinish = () => {
+                        details.open = false;
+                        // Reset style for next open
+                        content.style.height = '';
+                    };
+                } else {
+                    // Open the details first so we can measure scrollHeight
+                    details.open = true;
+                    const targetHeight = content.scrollHeight;
+
+                    // Start opening animation
+                    const anim = content.animate([
+                        { height: '0px', opacity: 0, transform: 'translateY(-10px)' },
+                        { height: `${targetHeight}px`, opacity: 1, transform: 'translateY(0)' }
+                    ], { duration: 300, easing: 'ease-in-out' });
+
+                    anim.onfinish = () => {
+                        // After opening, remove fixed height to handle window resizing
+                        content.style.height = '';
+                    };
+                }
+            });
+        });
+    });
 </script>
 </body>
 </html>
