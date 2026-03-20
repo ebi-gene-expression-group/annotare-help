@@ -80,6 +80,35 @@
                 }
             });
         });
+
+        /**
+         * Logic to open <details> based on URL hash (deep links).
+         */
+        const handleHashChange = () => {
+            const hash = window.location.hash;
+            if (!hash) return;
+            const targetId = decodeURIComponent(hash.substring(1));
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            let ancestor = target.parentElement;
+            while (ancestor) {
+                if (ancestor.tagName.toLowerCase() === 'details') {
+                    ancestor.open = true;
+                }
+                ancestor = ancestor.parentElement;
+            }
+            if (target.tagName.toLowerCase() === 'details') {
+                target.open = true;
+            }
+
+            // Optional: Scroll to target after a short delay to ensure layout is updated
+            setTimeout(() => {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        };
+
+        handleHashChange();
+        window.addEventListener('hashchange', handleHashChange);
     });
     // Create an observer that reports the new height whenever the content size changes
     const resizeObserver = new ResizeObserver(() => {
