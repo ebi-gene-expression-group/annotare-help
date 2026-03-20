@@ -83,32 +83,72 @@
 
         /**
          * Logic to open <details> based on URL hash (deep links).
+         * Enhanced for robust behavior in iframes.
          */
         const handleHashChange = () => {
             const hash = window.location.hash;
             if (!hash) return;
-            const targetId = decodeURIComponent(hash.substring(1));
-            const target = document.getElementById(targetId);
-            if (!target) return;
-            let ancestor = target.parentElement;
-            while (ancestor) {
-                if (ancestor.tagName.toLowerCase() === 'details') {
-                    ancestor.open = true;
-                }
-                ancestor = ancestor.parentElement;
-            }
-            if (target.tagName.toLowerCase() === 'details') {
-                target.open = true;
-            }
 
-            // Optional: Scroll to target after a short delay to ensure layout is updated
-            setTimeout(() => {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+            // Use decodeURIComponent to handle special characters in hash
+            const targetId = decodeURIComponent(hash.substring(1));
+            
+            const attemptOpening = () => {
+                const target = document.getElementById(targetId);
+                if (!target) return false;
+
+                // Find all ancestor <details> and open them
+                let ancestor = target.parentElement;
+                while (ancestor) {
+                    if (ancestor.tagName.toLowerCase() === 'details') {
+                        ancestor.open = true;
+                    }
+                    ancestor = ancestor.parentElement;
+                }
+
+                // If the target itself is a <details>, open it
+                if (target.tagName.toLowerCase() === 'details') {
+                    target.open = true;
+                }
+
+                // Scroll to target after a short delay to ensure layout is updated
+                setTimeout(() => {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    // After opening/scrolling, notify parent of height change again just in case
+                    if (window.parent !== window) {
+                        window.parent.postMessage({ type: 'iframe-resize', height: document.documentElement.scrollHeight }, '*');
+                    }
+                }, 200);
+                return true;
+            };
+
+            // Try immediately
+            if (!attemptOpening()) {
+                // If target not found yet, it might be due to iframe loading/rendering timing.
+                // Try a few more times.
+                let attempts = 0;
+                const interval = setInterval(() => {
+                    attempts++;
+                    if (attemptOpening() || attempts > 5) {
+                        clearInterval(interval);
+                    }
+                }, 300);
+            }
         };
 
+        // Run on various events to ensure it catches the hash in an iframe
         handleHashChange();
         window.addEventListener('hashchange', handleHashChange);
+        window.addEventListener('load', handleHashChange);
+
+        // Listen for messages from the parent window that might trigger a hash change
+        window.addEventListener('message', (event) => {
+            // Some parent apps might send a new hash via postMessage
+            if (event.data && event.data.type === 'navigate' && event.data.hash) {
+                window.location.hash = event.data.hash;
+            } else if (typeof event.data === 'string' && event.data.startsWith('#')) {
+                window.location.hash = event.data;
+            }
+        });
     });
     // Create an observer that reports the new height whenever the content size changes
     const resizeObserver = new ResizeObserver(() => {
