@@ -81,6 +81,18 @@
             });
         });
     });
+    // Create an observer that reports the new height whenever the content size changes
+    const resizeObserver = new ResizeObserver(() => {
+        // Get the full scrollable height of the document
+        const newHeight = document.documentElement.scrollHeight;
+
+        // Send a message to the parent window with the new height
+        // Note: '*' allows any parent to receive this, replace with your web app's domain for better security (e.g., 'https://your-app.ebi.ac.uk')
+        window.parent.postMessage({ type: 'iframe-resize', height: newHeight }, '*');
+    });
+
+    // Start observing the body for size changes
+    resizeObserver.observe(document.body);
 </script>
 </body>
 </html>
