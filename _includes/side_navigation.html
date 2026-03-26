@@ -78,7 +78,8 @@
           or page.url == '/pages/two_color_ma.html' 
           or page.url contains 'file_upload.html'
           or page.url contains 'validate_exp.html' 
-          or page.url == '/pages/submit_exp.html' 
+          or page.url == '/pages/submit_exp.html'
+          or page.url == '/pages/seq_validation_errors.html'
         %}is-active{% endif %}">
         <li>
           <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/getting_started.html" {% if page.url == "/pages/getting_started.html" %}class="active"{% endif %}>Getting started</a>
@@ -136,7 +137,8 @@
         <li><a>Validate and submit</a>
           <ul class="menu vertical nested
             {% if page.url contains 'validate_exp.html' 
-              or page.url == '/pages/submit_exp.html' 
+              or page.url == '/pages/submit_exp.html'
+              or page.url == '/pages/seq_validation_errors.html'
             %}is-active{% endif %}">
             <li>
               <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/validate_exp.html#validate" {% if page.url contains "validate_exp.html" %}class="active"{% endif %}>What is validation?</a>
@@ -146,6 +148,9 @@
             </li>
             <li>
               <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/submit_exp.html#save_sub" {% if page.url == "/pages/submit_exp.html" %}class="active"{% endif %}>Saving a copy of your submission</a>
+            </li>
+            <li>
+              <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/seq_validation_errors.html" {% if page.url == "/pages/seq_validation_errors.html" %}class="active"{% endif %}>Understanding File Validation Error Report</a>
             </li>
           </ul>
         </li>

@@ -1,0 +1,174 @@
+---
+layout: default
+title: Annotare Help Page
+---
+
+<section id="annotare-help">
+    <div class="small-12 medium-9 columns">
+      <h2>Understanding Your File Validation Error Report</h2>
+
+      <br>
+
+      <h3 id="what-is">1. What is the validation error email?</h3>
+
+      <p>When you submit sequencing data files, they are automatically checked before being forwarded to the European Nucleotide Archive (ENA). If any problems are detected, you will receive an email listing each error so that you can correct them and re-submit.</p>
+
+      <p>This guide explains how to read that email, what each error code means, and the steps you should take to fix the problem.</p>
+
+      <hr>
+
+      <h3 id="how-to-read">2. How to read the error report email</h3>
+
+      <p>Each error is reported on its own line and follows this pattern:</p>
+
+      <pre><code>[ERROR CODE]: filename( checksum ) - line N: error detail</code></pre>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Part</th>
+          <th>What it tells you</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><code>[ERROR CODE]</code></td>
+          <td>The type of problem detected (see Section 3)</td>
+        </tr>
+        <tr>
+          <td><code>filename( checksum )</code></td>
+          <td>The name of your file, plus a unique fingerprint (MD5 checksum) to identify it</td>
+        </tr>
+        <tr>
+          <td><code>line N</code></td>
+          <td>The line number inside the file where the problem was found</td>
+        </tr>
+        <tr>
+          <td><code>error detail</code></td>
+          <td>A short description of what went wrong</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Example line from an error report:</strong></p>
+
+      <pre><code>[INVALID_FASTQ]: file.fastq.gz ( 3a81d5cb9606b6feceb9e5e8315ce214 ) - line 4: wrong header &gt;novel.1</code></pre>
+
+      <p>This tells you: the file <code>file.fastq.gz</code> has an invalid FASTQ format — specifically, line 4 contains a header that is not recognised.</p>
+
+      <hr>
+
+      <h3 id="error-codes">3. Error code reference</h3>
+
+      <h4 id="invalid-fastq-header"><code>[INVALID_FASTQ]</code> — "wrong header"</h4>
+
+      <p><strong>What it means:</strong> A sequence record has a header line that does not match the expected FASTQ format.</p>
+
+      <p><strong>Likely cause:</strong> The file is not in a valid FASTQ format/unaligned bam file format, or was given the wrong file extension.</p>
+
+      <p><strong>What to do:</strong> Check that your data file assignments — only files in FASTQ or unaligned bam file formats can be assigned as raw data files. Upload raw data files in a genuine FASTQ format. Each record in a FASTQ file must have exactly four lines: a header line starting with <code>@</code>, the sequence, a <code>+</code> line, and the quality scores.</p>
+
+      <hr>
+
+      <h4 id="invalid-fastq-quality"><code>[INVALID_FASTQ]</code> — "sequence and quality don't have the same length"</h4>
+
+      <p><strong>What it means:</strong> The number of bases in the sequence line does not match the number of quality score characters.</p>
+
+      <p><strong>Likely cause:</strong> The file was truncated or corrupted during upload.</p>
+
+      <p><strong>What to do:</strong> Re-upload the original file. If the error persists, regenerate the file from your source data.</p>
+
+      <hr>
+
+      <h4 id="invalid-fastq-unpaired"><code>[INVALID_FASTQ]</code> — "unpaired read"</h4>
+
+      <p><strong>What it means:</strong> The FASTQ file validation process cannot identify matching reads across the two (or more) files expected for PAIRED library layout.</p>
+
+      <p><strong>Likely cause:</strong> Misassignment of files to samples e.g. for pair-end libraries there was only one file found.</p>
+
+      <p><strong>What to do:</strong> Check your file-to-sample assignment and library strategy in Annotare. For paired-end libraries, both files must be linked to the same sample (see <a href="https://www.ebi.ac.uk/fg/annotare/help/assign_files.html#SeqRaw">Assign Files to Samples</a>). If both the file assignment and library layout are correct, check the file names comply with the file naming requirements, see <a href="https://www.ebi.ac.uk/fg/annotare/help/accepted_sequencing_file_formats.html#raw_data_files">Accepted Sequencing Raw Data</a>.</p>
+
+      <hr>
+
+      <h4 id="invalid-fastq-duplicated"><code>[INVALID_FASTQ]</code> — "duplicated sequence"</h4>
+
+      <p><strong>What it means:</strong> The same read appears more than once in the same file.</p>
+
+      <p><strong>Likely cause:</strong> FASTQ files are expected to contain unique read identifiers, the validation process fails when duplicated identifiers are found within the same file.</p>
+
+      <p><strong>What to do:</strong> Check and correct the affected FASTQ files and then resubmit them to Annotare.</p>
+
+      <hr>
+
+      <h4 id="unsupported-file-type"><code>[UNSUPPORTED_FILE_TYPE]</code></h4>
+
+      <p><strong>What it means:</strong> The file format is not one of the accepted types.</p>
+
+      <p><strong>Likely cause:</strong> Wrong file format or an unsupported compression method.</p>
+
+      <p><strong>What to do:</strong> Provide files in an accepted format (FASTQ or BAM) and with correct compression. See <a href="https://www.ebi.ac.uk/fg/annotare/help/accepted_sequencing_file_formats.html#raw_data_files">Accepted Sequencing Raw Data</a>.</p>
+
+      <hr>
+
+      <h4 id="parameter-failure-truncated"><code>[PARAMETER_FAILURE]</code> — "invalid compressed data" / "file truncated" / "unexpected end of file"</h4>
+
+      <p><strong>What it means:</strong> The compressed file cannot be read fully — it appears incomplete or damaged.</p>
+
+      <p><strong>Likely cause:</strong> The file upload was interrupted before it completed.</p>
+
+      <p><strong>What to do:</strong> Re-upload the same file. Make sure your internet connection is stable during the upload.</p>
+
+      <hr>
+
+      <h4 id="parameter-failure-aligned"><code>[PARAMETER_FAILURE]</code> — "Aligned reads found"</h4>
+
+      <p><strong>What it means:</strong> A BAM file contains reads that have already been mapped to a reference genome. ENA only accepts unaligned (raw) reads in BAM format.</p>
+
+      <p><strong>Likely cause:</strong> A pre-aligned BAM file was submitted by mistake.</p>
+
+      <p><strong>What to do:</strong> Either generate a new BAM file containing only unaligned reads, or upload the original unprocessed FASTQ.gz files instead. See <a href="https://www.ebi.ac.uk/arrayexpress/help/UHTS_submissions.html#BamSpec">BAM specification</a>.</p>
+
+      <hr>
+
+      <h3 id="fix-and-resubmit">4. Step-by-step: fixing and re-submitting</h3>
+
+      <p><strong>Step 1 — Read the email carefully</strong><br>
+        Note every error code and the filename(s) affected. If the same MD5 checksum appears on more than one line, those files are identical and multiple errors have been triggered for the same file.</p>
+
+      <p><strong>Step 2 — Identify the problem</strong><br>
+        Match the error code in the email to the descriptions in Section 3 to understand what is wrong and what you need to do.</p>
+
+      <p><strong>Step 3 — Fix or replace the file(s)</strong><br>
+        Make the necessary corrections on your computer before re-uploading. Do not simply rename the file — the underlying data must be corrected.</p>
+
+      <p><strong>Step 4 — Wait for Annotare to re-open</strong><br>
+        You will receive a separate email from Annotare confirming that your submission form has been re-opened for editing.</p>
+
+      <p><strong>Step 5 — Upload corrected files and re-assign them</strong><br>
+        Log in to Annotare, upload your corrected files, and assign them to the correct sample(s). For paired-end libraries, both files must be linked to the same sample.</p>
+
+      <p><strong>Step 6 — Re-submit</strong><br>
+        Once all files are correctly assigned, submit again. The validation checks will re-run automatically.</p>
+
+      <hr>
+
+      <h3 id="useful-links">5. Useful links</h3>
+
+      <ul>
+        <li><strong>Submission requirements for sequencing experiments:</strong> <a href="https://www.ebi.ac.uk/fg/annotare/help/UHTS_submissions.html#HowToSubmit">https://www.ebi.ac.uk/arrayexpress/help/UHTS_submissions.html#HowToSubmit</a></li>
+        <li><strong>Assigning files to samples in Annotare:</strong> <a href="https://www.ebi.ac.uk/fg/annotare/help/assign_files.html#SeqRaw">https://www.ebi.ac.uk/fg/annotare/help/assign_files.html#SeqRaw</a></li>
+        <li><strong>Accepted sequencing raw data file formats:</strong> <a href="https://www.ebi.ac.uk/fg/annotare/help/accepted_sequencing_file_formats.html#raw_data_files">https://www.ebi.ac.uk/fg/annotare/help/accepted_sequencing_file_formats.html#raw_data_files</a></li>
+        <li><strong>BAM file specifications for ENA:</strong> <a href="https://www.ebi.ac.uk/fg/annotare/help/UHTS_submissions.html#BamSpec">https://www.ebi.ac.uk/arrayexpress/help/UHTS_submissions.html#BamSpec</a></li>
+      </ul>
+
+      <hr>
+
+      <h3 id="still-need-help">6. Still need help?</h3>
+
+      <p>If you have worked through the steps above and are still unsure how to resolve your error, reply directly to the validation error email and the Annotare/ArrayExpress team will be happy to assist you.</p>
+    </div>
+
+
+    <!-- side navigation -->
+    {% include side_navigation.html %}
+</section>
