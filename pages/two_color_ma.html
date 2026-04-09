@@ -7,14 +7,9 @@ title: Annotare Help Page
   <div class="small-12 medium-9 columns">
 
     <h2>Two-colour microarray experiments</h2>
-
-    <p style="color:red;">Annotare currently only supports one type of two-colour microarray workflow (see below).
-    For other workflows, please continue to use Annotare to construct the submission (e.g. experiment background, protocols, sample description,
-    assigning files to labeled extracts). </p>
-    <p style="color:red;">When you get to the stage where you have validation errors about
-    <code>"[Assign Files] The assignment between files and samples contains errors."</code>,
-    please write us using the "Contact Us" button from within your submission form and a curator will assist. We will be supporting
-    more workflows in the next few months.</p>
+    
+    <p>At the moment Annotare only supports one type of two-colour workflow (see graphic below), where two samples are connected with one common raw data file, which includes both channels. If you select two-colour for your Annotare submission, it will expect that you provide one file for the two samples that were hybridised together.</p>
+    
     <p>The supported workflow has a 2:2:1:1 relationship between samples, labelled extracts, hybridisation assays and data files:
         <img src="../assets/img/two_colour_workflow_1.png" alt="two_colour_workflow_1"/>
     </p>
@@ -24,6 +19,14 @@ title: Annotare Help Page
         <img src="../assets/img/labeled_extractwborder.png" alt="labeled extract"/>
     </p>
     <p>For more help on how to assign files for two-colour microarray experiments, see <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#TwoColRaw">two-colour section of the Assign Files page</a>.</p>
+    
+    <p>Some two-colour microarray technologies generate two separate raw data files (usually one for each channel), which will cause Annotare validation to fail, if you connect a single file per sample. For such technologies follow the guidance below:</p>
+    
+    <ul class="ae-help_checklist">
+      <li class="icon-bullet"><span class="icon icon-common icon-check" style="color: green"></span> If you have <strong>separate files for each channel</strong>, e.g. <em>idat</em> files from Illumina BeadChips, please select the "methylation microarray" template for your Annotare submission. You should not receive any file assignment error within this template. Make sure to select the correct experiment type (e.g. "genotyping by array" or "transcription profiling by array"), complete the Annotare form normally, and connect the files and samples as it makes sense for your experiment.</li>
+      <li class="icon-bullet"><span class="icon icon-common icon-check" style="color: green"></span> If your two-colour experimental design features a <strong>common reference sample</strong> that is used in more than one hybridisation, please see this <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#TwoColRaw">file assignment help for two-colour experiments</a> for the workaround that needs to be applied in this case.</li>
+    </ul>
+
     <br>
   </div>
 
