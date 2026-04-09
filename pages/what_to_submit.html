@@ -66,48 +66,36 @@ title: Annotare Help Page
     <br>
 
     <hr />
-    <div class="columns medium-12">
-      <details id="human_data">
-        <summary>
-          <h4>Sequencing of potentially identifiable human material</h4>
-        </summary>
-        <div class="ae-help_mainboxleft-hide">
-          <p>Data from human samples and individuals that could potentially lead to donor identification (e.g. genomic DNA sequences) can be submitted to ArrayExpress <strong>only if the data has been consented for public release</strong>. Such approvals are typically given by the relevant ethics committees, and ensuring this consent is in place is the responsibility of the submitter.</p>
-          <p>Identifiable data approved for <a target="_blank" href="https://www.ebi.ac.uk/ega/submission/FAQ#DAC">controlled access</a> should be submitted directly to the <a target="_blank" href="https://www.ebi.ac.uk/ega/">European Genome-phenome Archive (EGA)</a>, not ArrayExpress. It is possible to submit identifiable data (e.g. raw sequences) to the EGA while the related processed data (e.g. RPKM values) are submitted to ArrayExpress. It is the submitter&rsquo;s responsibility to ensure that such a split submission complies with the relevant ethics requirements.</p>
-          <p>To submit the processed data via Annotare, create a new submission and include the sample annotation and processed data files. Make sure to add the EGA study accession and, if available, the EGA sample, experiment, and run accessions as sample attributes. We can then add a link to the corresponding EGA study page. Email us at <a href="mailto:annotare@ebi.ac.uk">annotare@ebi.ac.uk</a> if you have questions about this type of submission.</p>
-        </div>
-      </details>
-    </div>
+    <details id="human_data">
+      <summary class="summary-primary">Sequencing of potentially identifiable human material</summary>
+      <div class="details-content ae-help_mainboxleft-hide">
+        <p>Data from human samples and individuals that could potentially lead to donor identification (e.g. genomic DNA sequences) can be submitted to ArrayExpress <strong>only if the data has been consented for public release</strong>. Such approvals are typically given by the relevant ethics committees, and ensuring this consent is in place is the responsibility of the submitter.</p>
+        <p>Identifiable data approved for <a target="_blank" href="https://www.ebi.ac.uk/ega/submission/FAQ#DAC">controlled access</a> should be submitted directly to the <a target="_blank" href="https://www.ebi.ac.uk/ega/">European Genome-phenome Archive (EGA)</a>, not ArrayExpress. It is possible to submit identifiable data (e.g. raw sequences) to the EGA while the related processed data (e.g. RPKM values) are submitted to ArrayExpress. It is the submitter&rsquo;s responsibility to ensure that such a split submission complies with the relevant ethics requirements.</p>
+        <p>To submit the processed data via Annotare, create a new submission and include the sample annotation and processed data files. Make sure to add the EGA study accession and, if available, the EGA sample, experiment, and run accessions as sample attributes. We can then add a link to the corresponding EGA study page. Email us at <a href="mailto:annotare@ebi.ac.uk">annotare@ebi.ac.uk</a> if you have questions about this type of submission.</p>
+      </div>
+    </details>
 
     <hr />
-    <div class="columns medium-12">
-      <details id="more_samp">
-        <summary>
-          <h4>More than 1,000 samples or data files</h4>
-        </summary>
-        <div class="ae-help_mainboxleft-hide">
-          <p>Annotare currently does not handle more than 1,000 samples per submission, so a workaround is needed. Fill in as much information as possible in the Annotare form, including protocols and the experiment description. You do not need to create all 1,000+ samples &mdash; create just 4&ndash;10 representative samples with their attributes.</p>
-          <p>Upload all of your data files <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#ftp">via the FTP server</a> and <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#assign-files">connect the uploaded files</a> to the first few samples you have created. This should allow you to pass validation and submit normally. Use the feedback box to let us know that you have more samples to add, and we will send you the samples and data relationship format (SDRF) spreadsheet so you can fill in the remaining sample information.</p>
-        </div>
-      </details>
-    </div>
+    <details id="more_samp">
+      <summary class="summary-primary">More than 1,000 samples or data files</summary>
+      <div class="details-content ae-help_mainboxleft-hide">
+        <p>Annotare currently does not handle more than 1,000 samples per submission, so a workaround is needed. Fill in as much information as possible in the Annotare form, including protocols and the experiment description. You do not need to create all 1,000+ samples &mdash; create just 4&ndash;10 representative samples with their attributes.</p>
+        <p>Upload all of your data files <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#ftp">via the FTP server</a> and <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/file_upload.html#assign-files">connect the uploaded files</a> to the first few samples you have created. This should allow you to pass validation and submit normally. Use the feedback box to let us know that you have more samples to add, and we will send you the samples and data relationship format (SDRF) spreadsheet so you can fill in the remaining sample information.</p>
+      </div>
+    </details>
 
     <hr />
-    <div class="columns medium-12">
-      <details id="more_tech">
-        <summary>
-          <h4>More than one technology per experiment</h4>
-        </summary>
-        <div class="ae-help_mainboxleft-hide">
-          <p>Annotare design expects each submission to contain just one experiment technology type, you will be asked to specify the technology and, if applicable, an array design, and this is then applied to the entire submission. If you have used different types of technology for the same set of samples (e.g. microarray plus sequencing, or two different array platforms, or sequencing and single-cell sequencing), please <strong>create separate submissions</strong> in Annotare. Make sure each submission has a <strong>distinct title</strong>, even if they belong to the same study, to avoid processing mistakes.</p>
-          <p>If your samples were run on more than one assay of broadly the same technology type - e.g. different assays (like RNA-seq and ATAC-seq) but both bulk high-throughput sequencing, it is possible to deposit these data together in a single submission, but please observe the following:</p>
-          <ul>
-            <li><strong>Only one 'Experiment Type' value can be selected for each submission in Annotare</strong> - if more than one experiment type needs to be assigned, please select one in Annotare and then leave us a message in the post-submission feedback text box. The wrangling team can then add more experiment types to your submission during processing.</li>
-            <li><strong>Each 'Sample' in Annotare needs to correspond to a single library</strong> - if more than one library has been derived from the same biological specimen and then profiled separately, separate samples need to be created for each.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
+    <details id="more_tech">
+      <summary class="summary-primary">More than one technology per experiment</summary>
+      <div class="details-content ae-help_mainboxleft-hide">
+        <p>Annotare design expects each submission to contain just one experiment technology type, you will be asked to specify the technology and, if applicable, an array design, and this is then applied to the entire submission. If you have used different types of technology for the same set of samples (e.g. microarray plus sequencing, or two different array platforms, or sequencing and single-cell sequencing), please <strong>create separate submissions</strong> in Annotare. Make sure each submission has a <strong>distinct title</strong>, even if they belong to the same study, to avoid processing mistakes.</p>
+        <p>If your samples were run on more than one assay of broadly the same technology type - e.g. different assays (like RNA-seq and ATAC-seq) but both bulk high-throughput sequencing, it is possible to deposit these data together in a single submission, but please observe the following:</p>
+        <ul>
+          <li><strong>Only one 'Experiment Type' value can be selected for each submission in Annotare</strong> - if more than one experiment type needs to be assigned, please select one in Annotare and then leave us a message in the post-submission feedback text box. The wrangling team can then add more experiment types to your submission during processing.</li>
+          <li><strong>Each 'Sample' in Annotare needs to correspond to a single library</strong> - if more than one library has been derived from the same biological specimen and then profiled separately, separate samples need to be created for each.</li>
+        </ul>
+      </div>
+    </details>
 
   </div>
 
