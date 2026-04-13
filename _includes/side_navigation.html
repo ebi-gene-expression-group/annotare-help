@@ -6,12 +6,10 @@
     <li><a>Before you start</a>
       <ul class="menu vertical nested 
         {% if page.url == '/pages/what_to_submit.html'
-          or page.url == '/pages/uhts_submissions.html'
           or page.url == '/pages/experiment_types.html'
           or page.url == '/pages/accepted_raw_ma_file_formats.html' 
           or page.url == '/pages/accepted_processed_ma_file_formats.html' 
-          or page.url contains 'accepted_sequencing_file_formats.html' 
-          or page.url == '/pages/pre-submission_checklist.html' 
+          or page.url contains 'accepted_sequencing_file_formats.html'
           or page.url == '/pages/adf_submissions_overview.html'
           or page.url == '/pages/SEQ_Spatial_Transcriptomics.html'
         %}is-active{% endif %}">
@@ -19,14 +17,10 @@
           <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/what_to_submit.html" {% if page.url == "/pages/what_to_submit.html" %}class="active"{% endif %}>Submission overview</a>
             <ul class="menu vertical nested
               {% if page.url == '/pages/what_to_submit.html'
-                or page.url == '/pages/uhts_submissions.html'
                 or page.url  == '/pages/experiment_types.html'
               %}is-active{% endif %}">
               <li>
                 <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/what_to_submit.html" {% if page.url == "/pages/what_to_submit.html" %}class="active"{% endif %}>What datasets can be submitted?</a>
-              </li>
-              <li>
-                <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/uhts_submissions.html" {% if page.url == "/pages/uhts_submissions.html" %}class="active"{% endif %}>Sequencing submissions</a>
               </li>
               <li>
                 <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/experiment_types.html" {% if page.url == "/pages/experiment_types.html" %}class="active"{% endif %}>Experiment types in ArrayExpress</a>
@@ -55,9 +49,6 @@
               <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/accepted_sequencing_file_formats.html#processed_data" {% if page.url contains "accepted_sequencing_file_formats.html" %}class="active"{% endif %}>Sequencing processed data</a>
             </li>
           </ul>
-        </li>
-        <li>
-          <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/pre-submission_checklist.html" {% if page.url == "/pages/pre-submission_checklist.html" %}class="active"{% endif %}>Pre-submission checklist</a>
         </li>
         <li>
           <a target="_parent" href="https://www.ebi.ac.uk/fg/annotare/help/adf_submissions_overview.html" {% if page.url == "/pages/adf_submissions_overview.html" %}class="active"{% endif %}>Array design submissions</a>
