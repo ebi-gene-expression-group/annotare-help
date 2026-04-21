@@ -6,150 +6,151 @@ title: Annotare Help Page
 <section id="annotare-help">
   <div class="small-12 medium-9 columns">
 
-    <h1>Annotare submission guidelines for sequencing-based spatial transcriptomics</h1>
+    <h2>Annotare submission guidelines for sequencing-based spatial transcriptomics</h2>
 
-<p>
-ArrayExpress accepts sequencing-based spatial transcriptomics datasets. These guidelines describe how to prepare and submit such data using Annotare.
-</p>
+    <p>
+    ArrayExpress accepts sequencing-based spatial transcriptomics datasets. These guidelines describe how to prepare and submit such data using Annotare.
+    </p>
 
-<p>
-Please note that this page highlights requirements specific for spatial data and is not comprehensive. Please refer to the general submission guidelines for complete guidance on the Annotare/ArrayExpress submission process.
-</p>
+    <p>
+    Please note that this page highlights requirements specific for spatial data and is not comprehensive. Please refer to the general submission guidelines for complete guidance on the Annotare/ArrayExpress submission process.
+    </p>
 
-<p>
-Imaging-based spatial transcriptomics datasets are not accepted in ArrayExpress and should instead be submitted to the BioImage Archive.
-</p>
+    <p>
+    Imaging-based spatial transcriptomics datasets are not accepted in ArrayExpress and should instead be submitted to the BioImage Archive.
+    </p>
+    <hr/>
+    <div class="section">
+    <h3>Scope and Data Routing</h3>
+    <p>
+    Raw data files are brokered to the European Nucleotide Archive (ENA), while ArrayExpress archives metadata, images, and processed data.
+    </p>
+    </div>
 
-<div class="section">
-<h2>Scope and Data Routing</h2>
-<p>
-Raw data files are brokered to the European Nucleotide Archive (ENA), while ArrayExpress archives metadata, images, and processed data.
-</p>
-</div>
+    <div class="section">
+    <h3>Human Data and Consent</h3>
+    <p>
+    Data derived from human samples that could potentially enable donor identification may only be submitted if appropriate consent for public data release has been obtained.
+    </p>
 
-<div class="section">
-<h2>Human Data and Consent</h2>
-<p>
-Data derived from human samples that could potentially enable donor identification may only be submitted if appropriate consent for public data release has been obtained.
-</p>
+    <p>
+    If raw data from human material experiments cannot be released publicly, we can accept submissions with processed data only. In these cases, sufficient metadata and protocol descriptions must still be provided to enable interpretation of the dataset. A curator will need to approve the submission manually to override the missing raw data file error—please contact the Annotare team for assistance.
+    </p>
+    </div>
 
-<p>
-If raw data from human material experiments cannot be released publicly, we can accept submissions with processed data only. In these cases, sufficient metadata and protocol descriptions must still be provided to enable interpretation of the dataset. A curator will need to approve the submission manually to override the missing raw data file error—please contact the Annotare team for assistance.
-</p>
-</div>
+    <div class="section">
+    <h3>General Principles</h3>
+    <p>
+    The aim of an ArrayExpress submission is to ensure that datasets can be understood and reproduced independently of any associated publication.
+    </p>
 
-<div class="section">
-<h2>General Principles</h2>
-<p>
-The aim of an ArrayExpress submission is to ensure that datasets can be understood and reproduced independently of any associated publication.
-</p>
+    <p>
+    All relevant metadata, protocols, and processed outputs should therefore be included.
+    </p>
 
-<p>
-All relevant metadata, protocols, and processed outputs should therefore be included.
-</p>
+    <ul>
+    <li>Raw sequencing data should be provided as compressed FASTQ or BAM files, named according to prescribed naming conventions.</li>
+    <li>Raw high-resolution tissue images should be included but assigned as processed data files.</li>
+    <li>Include all additional processed outputs described below.</li>
+    </ul>
+    </div>
 
-<ul>
-<li>Raw sequencing data should be provided as compressed FASTQ or BAM files, named according to prescribed naming conventions.</li>
-<li>Raw high-resolution tissue images should be included but assigned as processed data files.</li>
-<li>Include all additional processed outputs described below.</li>
-</ul>
-</div>
+    <div class="section">
+    <h3>Annotare Template Selection</h3>
+    <p>
+    For spatial transcriptomics submissions, please select the <strong>“Single cell sequencing”</strong> template in Annotare.
+    </p>
 
-<div class="section">
-<h2>Annotare Template Selection</h2>
-<p>
-For spatial transcriptomics submissions, please select the <strong>“Single cell sequencing”</strong> template in Annotare.
-</p>
+    <p>
+    This template allows submission of more than two raw data files per sequencing library and captures the required experimental metadata.
+    </p>
 
-<p>
-This template allows submission of more than two raw data files per sequencing library and captures the required experimental metadata.
-</p>
+    <p>
+    Leave empty or select “Other” for any library construction categories that are not relevant for your method.
+    </p>
+    </div>
+    <hr/>
+    <div class="section">
+    <h3>Recommended Metadata for Spatial Transcriptomics</h3>
+    <p>
+    Annotare will automatically require core metadata based on the selected experimental model. For spatial transcriptomics datasets, we strongly recommend including the additional sample attributes listed below.
+    </p>
 
-<p>
-Leave empty or select “Other” for any library construction categories that are not relevant for your method.
-</p>
-</div>
+    <h4>Sample-Level Metadata (Required)</h4>
+    <ul>
+    <li><strong>Sample ID:</strong> Unique identifier for the biological specimen.</li>
+    <li><strong>Specimen slide ID:</strong> Identifier for the slide or cartridge.</li>
+    <li><strong>Sampling site:</strong> Precise anatomical location (preferably using ontology terms).</li>
+    <li><strong>Storage state:</strong> Preservation method (e.g. fresh frozen, FFPE).</li>
+    <li><strong>Tissue section thickness:</strong> Reported in micrometers (µm).</li>
+    <li><strong>Permeabilization time:</strong> Optional (if relevant).</li>
+    <li><strong>Position on slide:</strong> Location of capture area.</li>
+    </ul>
+    </div>
 
-<div class="section">
-<h2>Recommended Metadata for Spatial Transcriptomics</h2>
-<p>
-Annotare will automatically require core metadata based on the selected experimental model. For spatial transcriptomics datasets, we strongly recommend including the additional sample attributes listed below.
-</p>
+    <div class="section">
+    <h4>Library Information</h4>
+    <p>
+    In the Single-cell library information tab:
+    </p>
+    <ul>
+    <li>Specify the library construction method (e.g. 10x Visium v2).</li>
+    <li>If “Other” is selected, provide full details in the nucleic acid library construction protocol.</li>
+    </ul>
+    </div>
+    <hr/>
+    <div class="section">
+    <h3>Protocol Requirements</h3>
+    <p>Please provide all required protocols.</p>
 
-<h3>Sample-Level Metadata (Required)</h3>
-<ul>
-<li><strong>Sample ID:</strong> Unique identifier for the biological specimen.</li>
-<li><strong>Specimen slide ID:</strong> Identifier for the slide or cartridge.</li>
-<li><strong>Sampling site:</strong> Precise anatomical location (preferably using ontology terms).</li>
-<li><strong>Storage state:</strong> Preservation method (e.g. fresh frozen, FFPE).</li>
-<li><strong>Tissue section thickness:</strong> Reported in micrometers (µm).</li>
-<li><strong>Permeabilization time:</strong> Optional (if relevant).</li>
-<li><strong>Position on slide:</strong> Location of capture area.</li>
-</ul>
-</div>
+    <p>Spatial transcriptomics submissions should also include a <strong>Dissection protocol</strong> describing:</p>
 
-<div class="section">
-<h2>Library Information</h2>
-<p>
-In the Single-cell library information tab:
-</p>
-<ul>
-<li>Specify the library construction method (e.g. 10x Visium v2).</li>
-<li>If “Other” is selected, provide full details in the nucleic acid library construction protocol.</li>
-</ul>
-</div>
+    <h4>Sample Preparation</h4>
+    <ul>
+    <li>Fixation</li>
+    <li>Sectioning / slicing</li>
+    <li>Permeabilization</li>
+    </ul>
 
-<div class="section">
-<h2>Protocol Requirements</h2>
-<p>Please provide all required protocols.</p>
+    <h4>Sample Imaging</h4>
+    <ul>
+    <li>Microscopy instrument</li>
+    <li>Magnification</li>
+    <li>Microscopy technique</li>
+    <li>Imaging setup</li>
+    </ul>
 
-<p>Spatial transcriptomics submissions should also include a <strong>Dissection protocol</strong> describing:</p>
+    <h4>Data Processing</h4>
+    <p>
+    In the normalization/data transformation protocol, specify the version of downstream analysis software.
+    </p>
+    </div>
+    <hr/>
+    <div class="section">
+    <h3>File Requirements</h3>
 
-<h3>Sample Preparation</h3>
-<ul>
-<li>Fixation</li>
-<li>Sectioning / slicing</li>
-<li>Permeabilization</li>
-</ul>
+    <h4>Raw Data</h4>
+    <p>(Required unless restricted human data)</p>
+    <ul>
+    <li>Compressed FASTQ files</li>
+    <li>Compressed BAM files</li>
+    </ul>
 
-<h3>Sample Imaging</h3>
-<ul>
-<li>Microscopy instrument</li>
-<li>Magnification</li>
-<li>Microscopy technique</li>
-<li>Imaging setup</li>
-</ul>
+    <p>
+    Please refer to detailed instructions for raw sequencing file preparation.
+    </p>
 
-<h3>Data Processing</h3>
-<p>
-In the normalization/data transformation protocol, specify the version of downstream analysis software.
-</p>
-</div>
+    <p>
+    <strong>Raw image:</strong> A high-resolution tissue image must be provided but assigned as a processed data file.
+    </p>
 
-<div class="section">
-<h2>File Requirements</h2>
-
-<h3>Raw Data</h3>
-<p>(Required unless restricted human data)</p>
-<ul>
-<li>Compressed FASTQ files</li>
-<li>Compressed BAM files</li>
-</ul>
-
-<p>
-Please refer to detailed instructions for raw sequencing file preparation.
-</p>
-
-<p>
-<strong>Raw image:</strong> A high-resolution tissue image must be provided but assigned as a processed data file.
-</p>
-
-<h3>Processed Data (Required)</h3>
-<ul>
-<li>Processed cell/spot count matrix</li>
-<li>Barcode coordinates file</li>
-<li>For Visium data: <code>barcode_mappings.parquet</code></li>
-</ul>
+    <h4>Processed Data (Required)</h4>
+    <ul>
+    <li>Processed cell/spot count matrix</li>
+    <li>Barcode coordinates file</li>
+    <li>For Visium data: <code>barcode_mappings.parquet</code></li>
+    </ul>
+    </div>
 
   </div>
   <!-- side navigation -->
