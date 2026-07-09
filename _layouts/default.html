@@ -33,7 +33,7 @@
     });
     const allowedParentOrigins = [
         "http://localhost:8080",
-        "https://wwwdev.ebi.ac.uk"
+        "https://wwwdev.ebi.ac.uk",
         "https://www.ebi.ac.uk"
     ];
 
@@ -176,7 +176,6 @@
         const newHeight = document.documentElement.scrollHeight;
 
         // Send a message to the parent window with the new height
-        // Note: '*' allows any parent to receive this, replace with your web app's domain for better security (e.g., 'https://your-app.ebi.ac.uk')
         window.parent.postMessage({ type: 'iframe-resize', height: newHeight }, '*');
     });
 
