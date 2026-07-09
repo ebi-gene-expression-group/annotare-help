@@ -31,10 +31,27 @@
             closeDataProtectionBanner();
         }
     });
+    const allowedParentOrigins = [
+        "http://localhost:8080",
+        "https://wwwdev.ebi.ac.uk"
+        "https://www.ebi.ac.uk"
+    ];
 
+    function notifyParent(detailsId) {
+        allowedParentOrigins.forEach((origin) => {
+            window.parent.postMessage(
+                {
+                    type: "annotare-help-section-change",
+                    id: detailsId
+                },
+                origin
+            );
+        });
+    }
     /**
      * Re-triggerable slide-down animation for <details> elements.
      * Uses Web Animations API for high performance and reliability.
+     * Also rewrites URL fragment when clicked on details
      */
     document.addEventListener('DOMContentLoaded', () => {
         const detailsElements = document.querySelectorAll('details');
@@ -46,6 +63,9 @@
             if (!summary || !content) return;
 
             summary.addEventListener('click', (e) => {
+                history.replaceState(null, "", `#${details.id}`);
+                notifyParent(details.id);
+
                 // Prevent the browser from toggling 'open' immediately
                 e.preventDefault();
 
